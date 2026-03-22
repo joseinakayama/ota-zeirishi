@@ -1,0 +1,2139 @@
+<!doctype html>
+<html lang="ja" title="">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>製造業向け税務相談会 | 太田総合税理士事務所</title>
+
+    <!-- Import Maps: ベアスペシファイア → esm.sh URL -->
+
+    <!-- モジュールプリロード（初回ロード高速化） -->
+    <link rel="modulepreload" href="https://esm.sh/react@18" />
+    <link rel="modulepreload" href="https://esm.sh/react-dom@18" />
+    <link
+      rel="modulepreload"
+      href="https://esm.sh/lucide-react@0.523.0?external=react,react-dom"
+    />
+
+    <!-- Tailwind CSS -->
+
+    <style>
+      /* Reset and base styles */
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+
+      html,
+      body,
+      #root {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        overflow-x: hidden;
+      }
+
+      body {
+        font-family:
+          system-ui,
+          -apple-system,
+          BlinkMacSystemFont,
+          "Segoe UI",
+          Roboto,
+          sans-serif;
+        line-height: 1.5;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      img,
+      picture,
+      video,
+      canvas,
+      svg {
+        display: block;
+        max-width: 100%;
+      }
+
+      input,
+      button,
+      textarea,
+      select {
+        font: inherit;
+      }
+
+      p,
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        overflow-wrap: break-word;
+      }
+
+      /* ===== Rich text (prose) styles for CMS content ===== */
+      .prose {
+        color: #374151;
+        line-height: 1.7;
+      }
+      .prose h1 {
+        font-size: 2rem;
+        font-weight: 700;
+        line-height: 1.3;
+        margin-top: 1.5rem;
+        margin-bottom: 0.75rem;
+        color: #111827;
+      }
+      .prose h2 {
+        font-size: 1.5rem;
+        font-weight: 600;
+        line-height: 1.4;
+        margin-top: 1.25rem;
+        margin-bottom: 0.5rem;
+        color: #1f2937;
+      }
+      .prose h3 {
+        font-size: 1.25rem;
+        font-weight: 600;
+        line-height: 1.5;
+        margin-top: 1rem;
+        margin-bottom: 0.5rem;
+        color: #374151;
+      }
+      .prose p {
+        margin-bottom: 1rem;
+        line-height: 1.7;
+      }
+      .prose ul,
+      .prose ol {
+        padding-left: 1.5rem;
+        margin-bottom: 1rem;
+      }
+      .prose ul {
+        list-style-type: disc;
+      }
+      .prose ol {
+        list-style-type: decimal;
+      }
+      .prose li {
+        margin-bottom: 0.5rem;
+        line-height: 1.6;
+      }
+      .prose blockquote {
+        border-left: 4px solid #d1d5db;
+        padding-left: 1.25rem;
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
+        margin: 0 0 1rem 0;
+        color: #6b7280;
+        font-style: italic;
+      }
+      .prose blockquote p {
+        margin-bottom: 0;
+      }
+      .prose code {
+        background-color: #f3f4f6;
+        padding: 0.125rem 0.375rem;
+        border-radius: 0.25rem;
+        font-family: ui-monospace, monospace;
+        font-size: 0.875em;
+        color: #e11d48;
+      }
+      .prose pre {
+        background-color: #1f2937;
+        color: #f9fafb;
+        padding: 1rem;
+        border-radius: 0.5rem;
+        overflow-x: auto;
+        margin-bottom: 1rem;
+      }
+      .prose pre code {
+        background-color: transparent;
+        padding: 0;
+        color: inherit;
+      }
+      .prose a {
+        color: #3b82f6;
+        text-decoration: underline;
+      }
+      .prose a:hover {
+        color: #2563eb;
+      }
+      .prose img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 0.5rem;
+        margin: 1rem 0;
+      }
+      .prose hr {
+        border: none;
+        border-top: 1px solid #e5e7eb;
+        margin: 1.5rem 0;
+      }
+      .prose strong {
+        font-weight: 600;
+        color: #111827;
+      }
+      .prose em {
+        font-style: italic;
+      }
+      .prose u {
+        text-decoration: underline;
+      }
+      .prose s {
+        text-decoration: line-through;
+      }
+
+      /* Tiptap text alignment support */
+      .prose [style*="text-align: center"],
+      .prose [style*="text-align:center"] {
+        text-align: center !important;
+      }
+      .prose [style*="text-align: right"],
+      .prose [style*="text-align:right"] {
+        text-align: right !important;
+      }
+      .prose [style*="text-align: justify"],
+      .prose [style*="text-align:justify"] {
+        text-align: justify !important;
+      }
+    </style>
+    <style>
+      *,
+      ::before,
+      ::after {
+        --tw-border-spacing-x: 0;
+        --tw-border-spacing-y: 0;
+        --tw-translate-x: 0;
+        --tw-translate-y: 0;
+        --tw-rotate: 0;
+        --tw-skew-x: 0;
+        --tw-skew-y: 0;
+        --tw-scale-x: 1;
+        --tw-scale-y: 1;
+        --tw-pan-x: ;
+        --tw-pan-y: ;
+        --tw-pinch-zoom: ;
+        --tw-scroll-snap-strictness: proximity;
+        --tw-gradient-from-position: ;
+        --tw-gradient-via-position: ;
+        --tw-gradient-to-position: ;
+        --tw-ordinal: ;
+        --tw-slashed-zero: ;
+        --tw-numeric-figure: ;
+        --tw-numeric-spacing: ;
+        --tw-numeric-fraction: ;
+        --tw-ring-inset: ;
+        --tw-ring-offset-width: 0px;
+        --tw-ring-offset-color: #fff;
+        --tw-ring-color: rgb(59 130 246 / 0.5);
+        --tw-ring-offset-shadow: 0 0 #0000;
+        --tw-ring-shadow: 0 0 #0000;
+        --tw-shadow: 0 0 #0000;
+        --tw-shadow-colored: 0 0 #0000;
+        --tw-blur: ;
+        --tw-brightness: ;
+        --tw-contrast: ;
+        --tw-grayscale: ;
+        --tw-hue-rotate: ;
+        --tw-invert: ;
+        --tw-saturate: ;
+        --tw-sepia: ;
+        --tw-drop-shadow: ;
+        --tw-backdrop-blur: ;
+        --tw-backdrop-brightness: ;
+        --tw-backdrop-contrast: ;
+        --tw-backdrop-grayscale: ;
+        --tw-backdrop-hue-rotate: ;
+        --tw-backdrop-invert: ;
+        --tw-backdrop-opacity: ;
+        --tw-backdrop-saturate: ;
+        --tw-backdrop-sepia: ;
+        --tw-contain-size: ;
+        --tw-contain-layout: ;
+        --tw-contain-paint: ;
+        --tw-contain-style: ;
+      }
+      ::backdrop {
+        --tw-border-spacing-x: 0;
+        --tw-border-spacing-y: 0;
+        --tw-translate-x: 0;
+        --tw-translate-y: 0;
+        --tw-rotate: 0;
+        --tw-skew-x: 0;
+        --tw-skew-y: 0;
+        --tw-scale-x: 1;
+        --tw-scale-y: 1;
+        --tw-pan-x: ;
+        --tw-pan-y: ;
+        --tw-pinch-zoom: ;
+        --tw-scroll-snap-strictness: proximity;
+        --tw-gradient-from-position: ;
+        --tw-gradient-via-position: ;
+        --tw-gradient-to-position: ;
+        --tw-ordinal: ;
+        --tw-slashed-zero: ;
+        --tw-numeric-figure: ;
+        --tw-numeric-spacing: ;
+        --tw-numeric-fraction: ;
+        --tw-ring-inset: ;
+        --tw-ring-offset-width: 0px;
+        --tw-ring-offset-color: #fff;
+        --tw-ring-color: rgb(59 130 246 / 0.5);
+        --tw-ring-offset-shadow: 0 0 #0000;
+        --tw-ring-shadow: 0 0 #0000;
+        --tw-shadow: 0 0 #0000;
+        --tw-shadow-colored: 0 0 #0000;
+        --tw-blur: ;
+        --tw-brightness: ;
+        --tw-contrast: ;
+        --tw-grayscale: ;
+        --tw-hue-rotate: ;
+        --tw-invert: ;
+        --tw-saturate: ;
+        --tw-sepia: ;
+        --tw-drop-shadow: ;
+        --tw-backdrop-blur: ;
+        --tw-backdrop-brightness: ;
+        --tw-backdrop-contrast: ;
+        --tw-backdrop-grayscale: ;
+        --tw-backdrop-hue-rotate: ;
+        --tw-backdrop-invert: ;
+        --tw-backdrop-opacity: ;
+        --tw-backdrop-saturate: ;
+        --tw-backdrop-sepia: ;
+        --tw-contain-size: ;
+        --tw-contain-layout: ;
+        --tw-contain-paint: ;
+        --tw-contain-style: ;
+      } /* ! tailwindcss v3.4.17 | MIT License | https://tailwindcss.com */
+      *,
+      ::after,
+      ::before {
+        box-sizing: border-box;
+        border-width: 0;
+        border-style: solid;
+        border-color: #e5e7eb;
+      }
+      ::after,
+      ::before {
+        --tw-content: "";
+      }
+      :host,
+      html {
+        line-height: 1.5;
+        -webkit-text-size-adjust: 100%;
+        -moz-tab-size: 4;
+        tab-size: 4;
+        font-family:
+          ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji",
+          "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+        font-feature-settings: normal;
+        font-variation-settings: normal;
+        -webkit-tap-highlight-color: transparent;
+      }
+      body {
+        margin: 0;
+        line-height: inherit;
+      }
+      hr {
+        height: 0;
+        color: inherit;
+        border-top-width: 1px;
+      }
+      abbr:where([title]) {
+        -webkit-text-decoration: underline dotted;
+        text-decoration: underline dotted;
+      }
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        font-size: inherit;
+        font-weight: inherit;
+      }
+      a {
+        color: inherit;
+        text-decoration: inherit;
+      }
+      b,
+      strong {
+        font-weight: bolder;
+      }
+      code,
+      kbd,
+      pre,
+      samp {
+        font-family:
+          ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+          "Liberation Mono", "Courier New", monospace;
+        font-feature-settings: normal;
+        font-variation-settings: normal;
+        font-size: 1em;
+      }
+      small {
+        font-size: 80%;
+      }
+      sub,
+      sup {
+        font-size: 75%;
+        line-height: 0;
+        position: relative;
+        vertical-align: baseline;
+      }
+      sub {
+        bottom: -0.25em;
+      }
+      sup {
+        top: -0.5em;
+      }
+      table {
+        text-indent: 0;
+        border-color: inherit;
+        border-collapse: collapse;
+      }
+      button,
+      input,
+      optgroup,
+      select,
+      textarea {
+        font-family: inherit;
+        font-feature-settings: inherit;
+        font-variation-settings: inherit;
+        font-size: 100%;
+        font-weight: inherit;
+        line-height: inherit;
+        letter-spacing: inherit;
+        color: inherit;
+        margin: 0;
+        padding: 0;
+      }
+      button,
+      select {
+        text-transform: none;
+      }
+      button,
+      input:where([type="button"]),
+      input:where([type="reset"]),
+      input:where([type="submit"]) {
+        -webkit-appearance: button;
+        background-color: transparent;
+        background-image: none;
+      }
+      :-moz-focusring {
+        outline: auto;
+      }
+      :-moz-ui-invalid {
+        box-shadow: none;
+      }
+      progress {
+        vertical-align: baseline;
+      }
+      ::-webkit-inner-spin-button,
+      ::-webkit-outer-spin-button {
+        height: auto;
+      }
+      [type="search"] {
+        -webkit-appearance: textfield;
+        outline-offset: -2px;
+      }
+      ::-webkit-search-decoration {
+        -webkit-appearance: none;
+      }
+      ::-webkit-file-upload-button {
+        -webkit-appearance: button;
+        font: inherit;
+      }
+      summary {
+        display: list-item;
+      }
+      blockquote,
+      dd,
+      dl,
+      figure,
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6,
+      hr,
+      p,
+      pre {
+        margin: 0;
+      }
+      fieldset {
+        margin: 0;
+        padding: 0;
+      }
+      legend {
+        padding: 0;
+      }
+      menu,
+      ol,
+      ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+      dialog {
+        padding: 0;
+      }
+      textarea {
+        resize: vertical;
+      }
+      input::placeholder,
+      textarea::placeholder {
+        opacity: 1;
+        color: #9ca3af;
+      }
+      [role="button"],
+      button {
+        cursor: pointer;
+      }
+      :disabled {
+        cursor: default;
+      }
+      audio,
+      canvas,
+      embed,
+      iframe,
+      img,
+      object,
+      svg,
+      video {
+        display: block;
+        vertical-align: middle;
+      }
+      img,
+      video {
+        max-width: 100%;
+        height: auto;
+      }
+      [hidden]:where(:not([hidden="until-found"])) {
+        display: none;
+      }
+      .fixed {
+        position: fixed;
+      }
+      .absolute {
+        position: absolute;
+      }
+      .relative {
+        position: relative;
+      }
+      .inset-0 {
+        inset: 0px;
+      }
+      .-bottom-24 {
+        bottom: -6rem;
+      }
+      .-left-24 {
+        left: -6rem;
+      }
+      .-right-2 {
+        right: -0.5rem;
+      }
+      .-right-24 {
+        right: -6rem;
+      }
+      .-top-2 {
+        top: -0.5rem;
+      }
+      .-top-24 {
+        top: -6rem;
+      }
+      .left-\[10\%\] {
+        left: 10%;
+      }
+      .right-0 {
+        right: 0px;
+      }
+      .right-\[10\%\] {
+        right: 10%;
+      }
+      .top-0 {
+        top: 0px;
+      }
+      .top-12 {
+        top: 3rem;
+      }
+      .left-4 {
+        left: 1rem;
+      }
+      .top-4 {
+        top: 1rem;
+      }
+      .z-0 {
+        z-index: 0;
+      }
+      .z-10 {
+        z-index: 10;
+      }
+      .z-50 {
+        z-index: 50;
+      }
+      .mx-auto {
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .mb-1 {
+        margin-bottom: 0.25rem;
+      }
+      .mb-10 {
+        margin-bottom: 2.5rem;
+      }
+      .mb-12 {
+        margin-bottom: 3rem;
+      }
+      .mb-16 {
+        margin-bottom: 4rem;
+      }
+      .mb-2 {
+        margin-bottom: 0.5rem;
+      }
+      .mb-20 {
+        margin-bottom: 5rem;
+      }
+      .mb-3 {
+        margin-bottom: 0.75rem;
+      }
+      .mb-4 {
+        margin-bottom: 1rem;
+      }
+      .mb-6 {
+        margin-bottom: 1.5rem;
+      }
+      .mb-8 {
+        margin-bottom: 2rem;
+      }
+      .ml-1 {
+        margin-left: 0.25rem;
+      }
+      .ml-2 {
+        margin-left: 0.5rem;
+      }
+      .mr-1 {
+        margin-right: 0.25rem;
+      }
+      .mr-2 {
+        margin-right: 0.5rem;
+      }
+      .mr-3 {
+        margin-right: 0.75rem;
+      }
+      .mt-0\.5 {
+        margin-top: 0.125rem;
+      }
+      .mt-1 {
+        margin-top: 0.25rem;
+      }
+      .mt-10 {
+        margin-top: 2.5rem;
+      }
+      .mt-2 {
+        margin-top: 0.5rem;
+      }
+      .mt-8 {
+        margin-top: 2rem;
+      }
+      .mt-auto {
+        margin-top: auto;
+      }
+      .mt-4 {
+        margin-top: 1rem;
+      }
+      .mt-16 {
+        margin-top: 4rem;
+      }
+      .line-clamp-2 {
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+      }
+      .line-clamp-3 {
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 3;
+      }
+      .block {
+        display: block;
+      }
+      .inline-block {
+        display: inline-block;
+      }
+      .flex {
+        display: flex;
+      }
+      .inline-flex {
+        display: inline-flex;
+      }
+      .grid {
+        display: grid;
+      }
+      .hidden {
+        display: none;
+      }
+      .aspect-square {
+        aspect-ratio: 1 / 1;
+      }
+      .h-1 {
+        height: 0.25rem;
+      }
+      .h-10 {
+        height: 2.5rem;
+      }
+      .h-12 {
+        height: 3rem;
+      }
+      .h-16 {
+        height: 4rem;
+      }
+      .h-20 {
+        height: 5rem;
+      }
+      .h-24 {
+        height: 6rem;
+      }
+      .h-4 {
+        height: 1rem;
+      }
+      .h-48 {
+        height: 12rem;
+      }
+      .h-5 {
+        height: 1.25rem;
+      }
+      .h-6 {
+        height: 1.5rem;
+      }
+      .h-64 {
+        height: 16rem;
+      }
+      .h-8 {
+        height: 2rem;
+      }
+      .h-96 {
+        height: 24rem;
+      }
+      .h-full {
+        height: 100%;
+      }
+      .h-auto {
+        height: auto;
+      }
+      .max-h-\[500px\] {
+        max-height: 500px;
+      }
+      .min-h-screen {
+        min-height: 100vh;
+      }
+      .w-1\/3 {
+        width: 33.333333%;
+      }
+      .w-10 {
+        width: 2.5rem;
+      }
+      .w-12 {
+        width: 3rem;
+      }
+      .w-16 {
+        width: 4rem;
+      }
+      .w-2\/3 {
+        width: 66.666667%;
+      }
+      .w-20 {
+        width: 5rem;
+      }
+      .w-24 {
+        width: 6rem;
+      }
+      .w-4 {
+        width: 1rem;
+      }
+      .w-4\/5 {
+        width: 80%;
+      }
+      .w-5 {
+        width: 1.25rem;
+      }
+      .w-6 {
+        width: 1.5rem;
+      }
+      .w-64 {
+        width: 16rem;
+      }
+      .w-8 {
+        width: 2rem;
+      }
+      .w-96 {
+        width: 24rem;
+      }
+      .w-full {
+        width: 100%;
+      }
+      .w-1\/4 {
+        width: 25%;
+      }
+      .w-3\/4 {
+        width: 75%;
+      }
+      .w-5\/6 {
+        width: 83.333333%;
+      }
+      .max-w-2xl {
+        max-width: 42rem;
+      }
+      .max-w-3xl {
+        max-width: 48rem;
+      }
+      .max-w-4xl {
+        max-width: 56rem;
+      }
+      .max-w-5xl {
+        max-width: 64rem;
+      }
+      .max-w-6xl {
+        max-width: 72rem;
+      }
+      .max-w-7xl {
+        max-width: 80rem;
+      }
+      .max-w-none {
+        max-width: none;
+      }
+      .flex-shrink-0 {
+        flex-shrink: 0;
+      }
+      .flex-grow {
+        flex-grow: 1;
+      }
+      .-translate-y-1\/2 {
+        --tw-translate-y: -50%;
+        transform: translate(var(--tw-translate-x), var(--tw-translate-y))
+          rotate(var(--tw-rotate)) skewX(var(--tw-skew-x))
+          skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x))
+          scaleY(var(--tw-scale-y));
+      }
+      .translate-x-1\/3 {
+        --tw-translate-x: 33.333333%;
+        transform: translate(var(--tw-translate-x), var(--tw-translate-y))
+          rotate(var(--tw-rotate)) skewX(var(--tw-skew-x))
+          skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x))
+          scaleY(var(--tw-scale-y));
+      }
+      .transform {
+        transform: translate(var(--tw-translate-x), var(--tw-translate-y))
+          rotate(var(--tw-rotate)) skewX(var(--tw-skew-x))
+          skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x))
+          scaleY(var(--tw-scale-y));
+      }
+      @keyframes pulse {
+        50% {
+          opacity: 0.5;
+        }
+      }
+      .animate-pulse {
+        animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+      }
+      @keyframes spin {
+        to {
+          transform: rotate(360deg);
+        }
+      }
+      .animate-spin {
+        animation: spin 1s linear infinite;
+      }
+      .cursor-pointer {
+        cursor: pointer;
+      }
+      .grid-cols-3 {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+      .flex-col {
+        flex-direction: column;
+      }
+      .flex-wrap {
+        flex-wrap: wrap;
+      }
+      .items-start {
+        align-items: flex-start;
+      }
+      .items-end {
+        align-items: flex-end;
+      }
+      .items-center {
+        align-items: center;
+      }
+      .justify-center {
+        justify-content: center;
+      }
+      .justify-between {
+        justify-content: space-between;
+      }
+      .gap-12 {
+        gap: 3rem;
+      }
+      .gap-4 {
+        gap: 1rem;
+      }
+      .gap-6 {
+        gap: 1.5rem;
+      }
+      .gap-8 {
+        gap: 2rem;
+      }
+      .gap-2 {
+        gap: 0.5rem;
+      }
+      .space-x-4 > :not([hidden]) ~ :not([hidden]) {
+        --tw-space-x-reverse: 0;
+        margin-right: calc(1rem * var(--tw-space-x-reverse));
+        margin-left: calc(1rem * calc(1 - var(--tw-space-x-reverse)));
+      }
+      .space-x-6 > :not([hidden]) ~ :not([hidden]) {
+        --tw-space-x-reverse: 0;
+        margin-right: calc(1.5rem * var(--tw-space-x-reverse));
+        margin-left: calc(1.5rem * calc(1 - var(--tw-space-x-reverse)));
+      }
+      .space-x-8 > :not([hidden]) ~ :not([hidden]) {
+        --tw-space-x-reverse: 0;
+        margin-right: calc(2rem * var(--tw-space-x-reverse));
+        margin-left: calc(2rem * calc(1 - var(--tw-space-x-reverse)));
+      }
+      .space-y-1 > :not([hidden]) ~ :not([hidden]) {
+        --tw-space-y-reverse: 0;
+        margin-top: calc(0.25rem * calc(1 - var(--tw-space-y-reverse)));
+        margin-bottom: calc(0.25rem * var(--tw-space-y-reverse));
+      }
+      .space-y-2 > :not([hidden]) ~ :not([hidden]) {
+        --tw-space-y-reverse: 0;
+        margin-top: calc(0.5rem * calc(1 - var(--tw-space-y-reverse)));
+        margin-bottom: calc(0.5rem * var(--tw-space-y-reverse));
+      }
+      .space-y-4 > :not([hidden]) ~ :not([hidden]) {
+        --tw-space-y-reverse: 0;
+        margin-top: calc(1rem * calc(1 - var(--tw-space-y-reverse)));
+        margin-bottom: calc(1rem * var(--tw-space-y-reverse));
+      }
+      .space-y-8 > :not([hidden]) ~ :not([hidden]) {
+        --tw-space-y-reverse: 0;
+        margin-top: calc(2rem * calc(1 - var(--tw-space-y-reverse)));
+        margin-bottom: calc(2rem * var(--tw-space-y-reverse));
+      }
+      .space-y-6 > :not([hidden]) ~ :not([hidden]) {
+        --tw-space-y-reverse: 0;
+        margin-top: calc(1.5rem * calc(1 - var(--tw-space-y-reverse)));
+        margin-bottom: calc(1.5rem * var(--tw-space-y-reverse));
+      }
+      .self-start {
+        align-self: flex-start;
+      }
+      .overflow-hidden {
+        overflow: hidden;
+      }
+      .rounded {
+        border-radius: 0.25rem;
+      }
+      .rounded-2xl {
+        border-radius: 1rem;
+      }
+      .rounded-full {
+        border-radius: 9999px;
+      }
+      .rounded-lg {
+        border-radius: 0.5rem;
+      }
+      .rounded-md {
+        border-radius: 0.375rem;
+      }
+      .rounded-xl {
+        border-radius: 0.75rem;
+      }
+      .rounded-b-xl {
+        border-bottom-right-radius: 0.75rem;
+        border-bottom-left-radius: 0.75rem;
+      }
+      .rounded-t-xl {
+        border-top-left-radius: 0.75rem;
+        border-top-right-radius: 0.75rem;
+      }
+      .rounded-br-lg {
+        border-bottom-right-radius: 0.5rem;
+      }
+      .border {
+        border-width: 1px;
+      }
+      .border-2 {
+        border-width: 2px;
+      }
+      .border-4 {
+        border-width: 4px;
+      }
+      .border-b {
+        border-bottom-width: 1px;
+      }
+      .border-b-2 {
+        border-bottom-width: 2px;
+      }
+      .border-l-4 {
+        border-left-width: 4px;
+      }
+      .border-t {
+        border-top-width: 1px;
+      }
+      .border-t-4 {
+        border-top-width: 4px;
+      }
+      .border-\[\#1A365D\] {
+        --tw-border-opacity: 1;
+        border-color: rgb(26 54 93 / var(--tw-border-opacity, 1));
+      }
+      .border-\[\#DD6B20\] {
+        --tw-border-opacity: 1;
+        border-color: rgb(221 107 32 / var(--tw-border-opacity, 1));
+      }
+      .border-gray-100 {
+        --tw-border-opacity: 1;
+        border-color: rgb(243 244 246 / var(--tw-border-opacity, 1));
+      }
+      .border-gray-200 {
+        --tw-border-opacity: 1;
+        border-color: rgb(229 231 235 / var(--tw-border-opacity, 1));
+      }
+      .border-gray-700 {
+        --tw-border-opacity: 1;
+        border-color: rgb(55 65 81 / var(--tw-border-opacity, 1));
+      }
+      .border-gray-800 {
+        --tw-border-opacity: 1;
+        border-color: rgb(31 41 55 / var(--tw-border-opacity, 1));
+      }
+      .border-white {
+        --tw-border-opacity: 1;
+        border-color: rgb(255 255 255 / var(--tw-border-opacity, 1));
+      }
+      .border-white\/20 {
+        border-color: rgb(255 255 255 / 0.2);
+      }
+      .border-white\/30 {
+        border-color: rgb(255 255 255 / 0.3);
+      }
+      .border-gray-300 {
+        --tw-border-opacity: 1;
+        border-color: rgb(209 213 219 / var(--tw-border-opacity, 1));
+      }
+      .bg-\[\#0F172A\] {
+        --tw-bg-opacity: 1;
+        background-color: rgb(15 23 42 / var(--tw-bg-opacity, 1));
+      }
+      .bg-\[\#1A365D\] {
+        --tw-bg-opacity: 1;
+        background-color: rgb(26 54 93 / var(--tw-bg-opacity, 1));
+      }
+      .bg-\[\#2F855A\] {
+        --tw-bg-opacity: 1;
+        background-color: rgb(47 133 90 / var(--tw-bg-opacity, 1));
+      }
+      .bg-\[\#2F855A\]\/10 {
+        background-color: rgb(47 133 90 / 0.1);
+      }
+      .bg-\[\#DD6B20\] {
+        --tw-bg-opacity: 1;
+        background-color: rgb(221 107 32 / var(--tw-bg-opacity, 1));
+      }
+      .bg-\[\#F9FAFB\] {
+        --tw-bg-opacity: 1;
+        background-color: rgb(249 250 251 / var(--tw-bg-opacity, 1));
+      }
+      .bg-blue-50 {
+        --tw-bg-opacity: 1;
+        background-color: rgb(239 246 255 / var(--tw-bg-opacity, 1));
+      }
+      .bg-gray-200 {
+        --tw-bg-opacity: 1;
+        background-color: rgb(229 231 235 / var(--tw-bg-opacity, 1));
+      }
+      .bg-gray-50 {
+        --tw-bg-opacity: 1;
+        background-color: rgb(249 250 251 / var(--tw-bg-opacity, 1));
+      }
+      .bg-white {
+        --tw-bg-opacity: 1;
+        background-color: rgb(255 255 255 / var(--tw-bg-opacity, 1));
+      }
+      .bg-white\/10 {
+        background-color: rgb(255 255 255 / 0.1);
+      }
+      .bg-white\/20 {
+        background-color: rgb(255 255 255 / 0.2);
+      }
+      .bg-white\/95 {
+        background-color: rgb(255 255 255 / 0.95);
+      }
+      .bg-gray-100 {
+        --tw-bg-opacity: 1;
+        background-color: rgb(243 244 246 / var(--tw-bg-opacity, 1));
+      }
+      .bg-\[url\(\'https\:\/\/www\.transparenttextures\.com\/patterns\/cubes\.png\'\)\] {
+        background-image: url("https://www.transparenttextures.com/patterns/cubes.png");
+      }
+      .bg-gradient-to-r {
+        background-image: linear-gradient(to right, var(--tw-gradient-stops));
+      }
+      .from-\[\#1A365D\] {
+        --tw-gradient-from: #1a365d var(--tw-gradient-from-position);
+        --tw-gradient-to: rgb(26 54 93 / 0) var(--tw-gradient-to-position);
+        --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+      }
+      .to-transparent {
+        --tw-gradient-to: transparent var(--tw-gradient-to-position);
+      }
+      .object-cover {
+        object-fit: cover;
+      }
+      .p-2 {
+        padding: 0.5rem;
+      }
+      .p-3 {
+        padding: 0.75rem;
+      }
+      .p-4 {
+        padding: 1rem;
+      }
+      .p-6 {
+        padding: 1.5rem;
+      }
+      .p-8 {
+        padding: 2rem;
+      }
+      .px-3 {
+        padding-left: 0.75rem;
+        padding-right: 0.75rem;
+      }
+      .px-4 {
+        padding-left: 1rem;
+        padding-right: 1rem;
+      }
+      .px-6 {
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+      }
+      .px-8 {
+        padding-left: 2rem;
+        padding-right: 2rem;
+      }
+      .py-1 {
+        padding-top: 0.25rem;
+        padding-bottom: 0.25rem;
+      }
+      .py-1\.5 {
+        padding-top: 0.375rem;
+        padding-bottom: 0.375rem;
+      }
+      .py-12 {
+        padding-top: 3rem;
+        padding-bottom: 3rem;
+      }
+      .py-16 {
+        padding-top: 4rem;
+        padding-bottom: 4rem;
+      }
+      .py-2 {
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
+      }
+      .py-20 {
+        padding-top: 5rem;
+        padding-bottom: 5rem;
+      }
+      .py-3 {
+        padding-top: 0.75rem;
+        padding-bottom: 0.75rem;
+      }
+      .py-4 {
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+      }
+      .pb-2 {
+        padding-bottom: 0.5rem;
+      }
+      .pb-20 {
+        padding-bottom: 5rem;
+      }
+      .pb-4 {
+        padding-bottom: 1rem;
+      }
+      .pr-4 {
+        padding-right: 1rem;
+      }
+      .pt-2 {
+        padding-top: 0.5rem;
+      }
+      .pt-28 {
+        padding-top: 7rem;
+      }
+      .pt-8 {
+        padding-top: 2rem;
+      }
+      .pt-4 {
+        padding-top: 1rem;
+      }
+      .pt-32 {
+        padding-top: 8rem;
+      }
+      .text-left {
+        text-align: left;
+      }
+      .text-center {
+        text-align: center;
+      }
+      .font-sans {
+        font-family:
+          ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji",
+          "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+      }
+      .font-serif {
+        font-family:
+          ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      .text-2xl {
+        font-size: 1.5rem;
+        line-height: 2rem;
+      }
+      .text-3xl {
+        font-size: 1.875rem;
+        line-height: 2.25rem;
+      }
+      .text-4xl {
+        font-size: 2.25rem;
+        line-height: 2.5rem;
+      }
+      .text-lg {
+        font-size: 1.125rem;
+        line-height: 1.75rem;
+      }
+      .text-sm {
+        font-size: 0.875rem;
+        line-height: 1.25rem;
+      }
+      .text-xl {
+        font-size: 1.25rem;
+        line-height: 1.75rem;
+      }
+      .text-xs {
+        font-size: 0.75rem;
+        line-height: 1rem;
+      }
+      .font-bold {
+        font-weight: 700;
+      }
+      .font-medium {
+        font-weight: 500;
+      }
+      .font-normal {
+        font-weight: 400;
+      }
+      .not-italic {
+        font-style: normal;
+      }
+      .leading-relaxed {
+        line-height: 1.625;
+      }
+      .leading-tight {
+        line-height: 1.25;
+      }
+      .tracking-wider {
+        letter-spacing: 0.05em;
+      }
+      .tracking-widest {
+        letter-spacing: 0.1em;
+      }
+      .text-\[\#1A365D\] {
+        --tw-text-opacity: 1;
+        color: rgb(26 54 93 / var(--tw-text-opacity, 1));
+      }
+      .text-\[\#1F2937\] {
+        --tw-text-opacity: 1;
+        color: rgb(31 41 55 / var(--tw-text-opacity, 1));
+      }
+      .text-\[\#2F855A\] {
+        --tw-text-opacity: 1;
+        color: rgb(47 133 90 / var(--tw-text-opacity, 1));
+      }
+      .text-\[\#4B5563\] {
+        --tw-text-opacity: 1;
+        color: rgb(75 85 99 / var(--tw-text-opacity, 1));
+      }
+      .text-\[\#DD6B20\] {
+        --tw-text-opacity: 1;
+        color: rgb(221 107 32 / var(--tw-text-opacity, 1));
+      }
+      .text-gray-200 {
+        --tw-text-opacity: 1;
+        color: rgb(229 231 235 / var(--tw-text-opacity, 1));
+      }
+      .text-gray-300 {
+        --tw-text-opacity: 1;
+        color: rgb(209 213 219 / var(--tw-text-opacity, 1));
+      }
+      .text-gray-400 {
+        --tw-text-opacity: 1;
+        color: rgb(156 163 175 / var(--tw-text-opacity, 1));
+      }
+      .text-gray-500 {
+        --tw-text-opacity: 1;
+        color: rgb(107 114 128 / var(--tw-text-opacity, 1));
+      }
+      .text-white {
+        --tw-text-opacity: 1;
+        color: rgb(255 255 255 / var(--tw-text-opacity, 1));
+      }
+      .text-white\/90 {
+        color: rgb(255 255 255 / 0.9);
+      }
+      .text-red-500 {
+        --tw-text-opacity: 1;
+        color: rgb(239 68 68 / var(--tw-text-opacity, 1));
+      }
+      .text-gray-600 {
+        --tw-text-opacity: 1;
+        color: rgb(75 85 99 / var(--tw-text-opacity, 1));
+      }
+      .opacity-10 {
+        opacity: 0.1;
+      }
+      .opacity-30 {
+        opacity: 0.3;
+      }
+      .opacity-5 {
+        opacity: 0.05;
+      }
+      .shadow-2xl {
+        --tw-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+        --tw-shadow-colored: 0 25px 50px -12px var(--tw-shadow-color);
+        box-shadow:
+          var(--tw-ring-offset-shadow, 0 0 #0000),
+          var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+      }
+      .shadow-lg {
+        --tw-shadow:
+          0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+        --tw-shadow-colored:
+          0 10px 15px -3px var(--tw-shadow-color),
+          0 4px 6px -4px var(--tw-shadow-color);
+        box-shadow:
+          var(--tw-ring-offset-shadow, 0 0 #0000),
+          var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+      }
+      .shadow-md {
+        --tw-shadow:
+          0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+        --tw-shadow-colored:
+          0 4px 6px -1px var(--tw-shadow-color),
+          0 2px 4px -2px var(--tw-shadow-color);
+        box-shadow:
+          var(--tw-ring-offset-shadow, 0 0 #0000),
+          var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+      }
+      .shadow-sm {
+        --tw-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+        --tw-shadow-colored: 0 1px 2px 0 var(--tw-shadow-color);
+        box-shadow:
+          var(--tw-ring-offset-shadow, 0 0 #0000),
+          var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+      }
+      .shadow-xl {
+        --tw-shadow:
+          0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+        --tw-shadow-colored:
+          0 20px 25px -5px var(--tw-shadow-color),
+          0 8px 10px -6px var(--tw-shadow-color);
+        box-shadow:
+          var(--tw-ring-offset-shadow, 0 0 #0000),
+          var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+      }
+      .backdrop-blur-sm {
+        --tw-backdrop-blur: blur(4px);
+        -webkit-backdrop-filter: var(--tw-backdrop-blur)
+          var(--tw-backdrop-brightness) var(--tw-backdrop-contrast)
+          var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate)
+          var(--tw-backdrop-invert) var(--tw-backdrop-opacity)
+          var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);
+        backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness)
+          var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale)
+          var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert)
+          var(--tw-backdrop-opacity) var(--tw-backdrop-saturate)
+          var(--tw-backdrop-sepia);
+      }
+      .transition-all {
+        transition-property: all;
+        transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+        transition-duration: 150ms;
+      }
+      .transition-colors {
+        transition-property:
+          color,
+          background-color,
+          border-color,
+          fill,
+          stroke,
+          -webkit-text-decoration-color;
+        transition-property:
+          color, background-color, border-color, text-decoration-color, fill,
+          stroke;
+        transition-property:
+          color,
+          background-color,
+          border-color,
+          text-decoration-color,
+          fill,
+          stroke,
+          -webkit-text-decoration-color;
+        transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+        transition-duration: 150ms;
+      }
+      .transition-shadow {
+        transition-property: box-shadow;
+        transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+        transition-duration: 150ms;
+      }
+      .transition-transform {
+        transition-property: transform;
+        transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+        transition-duration: 150ms;
+      }
+      .duration-300 {
+        transition-duration: 300ms;
+      }
+      .duration-500 {
+        transition-duration: 500ms;
+      }
+      .hover\:scale-105:hover {
+        --tw-scale-x: 1.05;
+        --tw-scale-y: 1.05;
+        transform: translate(var(--tw-translate-x), var(--tw-translate-y))
+          rotate(var(--tw-rotate)) skewX(var(--tw-skew-x))
+          skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x))
+          scaleY(var(--tw-scale-y));
+      }
+      .hover\:bg-\[\#C05621\]:hover {
+        --tw-bg-opacity: 1;
+        background-color: rgb(192 86 33 / var(--tw-bg-opacity, 1));
+      }
+      .hover\:bg-gray-50:hover {
+        --tw-bg-opacity: 1;
+        background-color: rgb(249 250 251 / var(--tw-bg-opacity, 1));
+      }
+      .hover\:bg-white\/20:hover {
+        background-color: rgb(255 255 255 / 0.2);
+      }
+      .hover\:text-\[\#DD6B20\]:hover {
+        --tw-text-opacity: 1;
+        color: rgb(221 107 32 / var(--tw-text-opacity, 1));
+      }
+      .hover\:text-white:hover {
+        --tw-text-opacity: 1;
+        color: rgb(255 255 255 / var(--tw-text-opacity, 1));
+      }
+      .hover\:text-\[\#1A365D\]:hover {
+        --tw-text-opacity: 1;
+        color: rgb(26 54 93 / var(--tw-text-opacity, 1));
+      }
+      .hover\:shadow-md:hover {
+        --tw-shadow:
+          0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+        --tw-shadow-colored:
+          0 4px 6px -1px var(--tw-shadow-color),
+          0 2px 4px -2px var(--tw-shadow-color);
+        box-shadow:
+          var(--tw-ring-offset-shadow, 0 0 #0000),
+          var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+      }
+      .hover\:shadow-xl:hover {
+        --tw-shadow:
+          0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+        --tw-shadow-colored:
+          0 20px 25px -5px var(--tw-shadow-color),
+          0 8px 10px -6px var(--tw-shadow-color);
+        box-shadow:
+          var(--tw-ring-offset-shadow, 0 0 #0000),
+          var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+      }
+      .focus\:border-transparent:focus {
+        border-color: transparent;
+      }
+      .focus\:outline-none:focus {
+        outline: 2px solid transparent;
+        outline-offset: 2px;
+      }
+      .focus\:ring-2:focus {
+        --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0
+          var(--tw-ring-offset-width) var(--tw-ring-offset-color);
+        --tw-ring-shadow: var(--tw-ring-inset) 0 0 0
+          calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color);
+        box-shadow:
+          var(--tw-ring-offset-shadow), var(--tw-ring-shadow),
+          var(--tw-shadow, 0 0 #0000);
+      }
+      .focus\:ring-\[\#1A365D\]:focus {
+        --tw-ring-opacity: 1;
+        --tw-ring-color: rgb(26 54 93 / var(--tw-ring-opacity, 1));
+      }
+      .disabled\:cursor-not-allowed:disabled {
+        cursor: not-allowed;
+      }
+      .disabled\:opacity-70:disabled {
+        opacity: 0.7;
+      }
+      .group:hover .group-hover\:translate-x-1 {
+        --tw-translate-x: 0.25rem;
+        transform: translate(var(--tw-translate-x), var(--tw-translate-y))
+          rotate(var(--tw-rotate)) skewX(var(--tw-skew-x))
+          skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x))
+          scaleY(var(--tw-scale-y));
+      }
+      .group:hover .group-hover\:scale-105 {
+        --tw-scale-x: 1.05;
+        --tw-scale-y: 1.05;
+        transform: translate(var(--tw-translate-x), var(--tw-translate-y))
+          rotate(var(--tw-rotate)) skewX(var(--tw-skew-x))
+          skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x))
+          scaleY(var(--tw-scale-y));
+      }
+      .group:hover .group-hover\:text-\[\#1A365D\] {
+        --tw-text-opacity: 1;
+        color: rgb(26 54 93 / var(--tw-text-opacity, 1));
+      }
+      .group:hover .group-hover\:text-\[\#DD6B20\] {
+        --tw-text-opacity: 1;
+        color: rgb(221 107 32 / var(--tw-text-opacity, 1));
+      }
+      @media (min-width: 640px) {
+        .sm\:flex-row {
+          flex-direction: row;
+        }
+      }
+      @media (min-width: 768px) {
+        .md\:col-span-2 {
+          grid-column: span 2 / span 2;
+        }
+        .md\:mt-0 {
+          margin-top: 0px;
+        }
+        .md\:block {
+          display: block;
+        }
+        .md\:flex {
+          display: flex;
+        }
+        .md\:hidden {
+          display: none;
+        }
+        .md\:w-1\/3 {
+          width: 33.333333%;
+        }
+        .md\:w-2\/3 {
+          width: 66.666667%;
+        }
+        .md\:-translate-y-4 {
+          --tw-translate-y: -1rem;
+          transform: translate(var(--tw-translate-x), var(--tw-translate-y))
+            rotate(var(--tw-rotate)) skewX(var(--tw-skew-x))
+            skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x))
+            scaleY(var(--tw-scale-y));
+        }
+        .md\:grid-cols-2 {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+        .md\:grid-cols-3 {
+          grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
+        .md\:grid-cols-4 {
+          grid-template-columns: repeat(4, minmax(0, 1fr));
+        }
+        .md\:flex-row {
+          flex-direction: row;
+        }
+        .md\:p-12 {
+          padding: 3rem;
+        }
+        .md\:px-6 {
+          padding-left: 1.5rem;
+          padding-right: 1.5rem;
+        }
+        .md\:text-2xl {
+          font-size: 1.5rem;
+          line-height: 2rem;
+        }
+        .md\:text-3xl {
+          font-size: 1.875rem;
+          line-height: 2.25rem;
+        }
+        .md\:text-4xl {
+          font-size: 2.25rem;
+          line-height: 2.5rem;
+        }
+        .md\:text-5xl {
+          font-size: 3rem;
+          line-height: 1;
+        }
+      }
+      @media (min-width: 1024px) {
+        .lg\:col-span-2 {
+          grid-column: span 2 / span 2;
+        }
+        .lg\:col-span-3 {
+          grid-column: span 3 / span 3;
+        }
+        .lg\:flex {
+          display: flex;
+        }
+        .lg\:hidden {
+          display: none;
+        }
+        .lg\:grid-cols-3 {
+          grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
+        .lg\:grid-cols-5 {
+          grid-template-columns: repeat(5, minmax(0, 1fr));
+        }
+        .lg\:px-8 {
+          padding-left: 2rem;
+          padding-right: 2rem;
+        }
+        .lg\:pb-32 {
+          padding-bottom: 8rem;
+        }
+        .lg\:pt-40 {
+          padding-top: 10rem;
+        }
+        .lg\:text-6xl {
+          font-size: 3.75rem;
+          line-height: 1;
+        }
+      }
+    </style>
+    <style data-selector-mode-styles="true">
+      .selector-hover {
+        outline: 2px solid rgba(59, 130, 246, 0.5) !important;
+        outline-offset: -2px !important;
+        cursor: pointer !important;
+      }
+      .selector-selected {
+        outline: 2px solid #ff7500 !important;
+        outline-offset: -2px !important;
+        box-shadow: inset 0 0 0 1000px rgba(255, 117, 0, 0.25) !important;
+      }
+      img.selector-hover {
+        filter: brightness(0.95) !important;
+      }
+      img.selector-selected {
+        filter: brightness(0.8) sepia(0.4) hue-rotate(-10deg) !important;
+      }
+      /* 画像オーバーレイ用スタイル */
+      .img-overlay-border {
+        pointer-events: none;
+        z-index: 9998;
+      }
+      .img-overlay-border.hover-blue {
+        border: 2px solid rgba(59, 130, 246, 0.7);
+        background: rgba(59, 130, 246, 0.1);
+      }
+      .img-overlay-border.selected-orange {
+        border: 2px solid #ff7500;
+        background: rgba(255, 117, 0, 0.15);
+      }
+    </style>
+    <style data-css-edit-mode-styles="true">
+      .css-edit-hover {
+        outline: 2px dashed #3b82f6 !important;
+        outline-offset: -2px !important;
+        cursor: pointer !important;
+      }
+      .css-edit-selected {
+        outline: 3px solid #3b82f6 !important;
+        outline-offset: -3px !important;
+        box-shadow: inset 0 0 0 1000px rgba(59, 130, 246, 0.25) !important;
+      }
+      img.css-edit-hover {
+        filter: brightness(0.95) !important;
+      }
+      img.css-edit-selected {
+        filter: brightness(0.85) saturate(1.3) !important;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-page="news-detail-2" title="">
+      <style>
+        @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@400;600;700&display=swap");
+
+        html {
+          overflow-x: hidden;
+          scroll-behavior: smooth;
+        }
+
+        body {
+          font-family: "Noto Sans JP", sans-serif;
+          color: #1f2937;
+          background-color: #ffffff;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        .font-serif {
+          font-family: "Noto Serif JP", serif;
+        }
+
+        @keyframes fadeIn {
+          from {
+            opacity: 0;
+          }
+          to {
+            opacity: 1;
+          }
+        }
+
+        @keyframes slideInUp {
+          from {
+            transform: translateY(30px);
+            opacity: 0;
+          }
+          to {
+            transform: translateY(0);
+            opacity: 1;
+          }
+        }
+
+        .animate-fadeIn {
+          animation: fadeIn 0.8s ease-out forwards;
+        }
+
+        .animate-slideInUp {
+          animation: slideInUp 0.8s ease-out forwards;
+        }
+
+        .stagger-1 {
+          animation-delay: 0.1s;
+        }
+        .stagger-2 {
+          animation-delay: 0.2s;
+        }
+        .stagger-3 {
+          animation-delay: 0.3s;
+        }
+        .stagger-4 {
+          animation-delay: 0.4s;
+        }
+
+        .prose img {
+          max-width: 100%;
+          height: auto;
+          border-radius: 0.5rem;
+          margin: 2rem 0;
+        }
+
+        .prose h2 {
+          font-size: 1.75rem;
+          font-weight: 700;
+          margin-top: 2.5rem;
+          margin-bottom: 1.25rem;
+          border-bottom: 2px solid #1a365d;
+          padding-bottom: 0.5rem;
+          font-family: "Noto Serif JP", serif;
+        }
+
+        .prose h3 {
+          font-size: 1.25rem;
+          font-weight: 700;
+          margin-top: 2rem;
+          margin-bottom: 1rem;
+          border-left: 4px solid #2f855a;
+          padding-left: 0.75rem;
+        }
+
+        .prose p {
+          margin-bottom: 1.25rem;
+          line-height: 1.8;
+        }
+
+        .prose ul {
+          list-style-type: disc;
+          padding-left: 1.5rem;
+          margin-bottom: 1.5rem;
+        }
+
+        .prose ol {
+          list-style-type: decimal;
+          padding-left: 1.5rem;
+          margin-bottom: 1.5rem;
+        }
+
+        .prose li {
+          margin-bottom: 0.5rem;
+        }
+
+        .prose a {
+          color: #1a365d;
+          text-decoration: underline;
+        }
+
+        .prose a:hover {
+          color: #dd6b20;
+        }
+
+        .prose blockquote {
+          border-left: 4px solid #e5e7eb;
+          padding-left: 1rem;
+          color: #4b5563;
+          font-style: italic;
+          margin: 1.5rem 0;
+        }
+      </style>
+      <div class="min-h-screen flex flex-col bg-[#F9FAFB]">
+        <header
+          class="fixed top-0 w-full z-50 transition-all duration-300 bg-white/95 backdrop-blur-sm py-4"
+        >
+          <div class="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
+            <div class="flex justify-between items-center">
+              <div class="flex flex-col cursor-pointer">
+                <span
+                  class="text-xs font-bold text-[#1A365D] tracking-widest mb-1"
+                  >群馬県前橋市の税理士事務所</span
+                ><span class="text-2xl font-serif font-bold text-[#1A365D]"
+                  >太田総合税理士事務所</span
+                >
+              </div>
+              <div class="hidden lg:flex items-center space-x-8">
+                <nav class="flex space-x-6">
+                  <button
+                    class="text-[#1F2937] hover:text-[#DD6B20] font-medium transition-colors"
+                  >
+                    ホーム</button
+                  ><button
+                    class="text-[#1F2937] hover:text-[#DD6B20] font-medium transition-colors"
+                  >
+                    サービス</button
+                  ><button
+                    class="text-[#1F2937] hover:text-[#DD6B20] font-medium transition-colors"
+                  >
+                    実績・事例</button
+                  ><button
+                    class="text-[#1F2937] hover:text-[#DD6B20] font-medium transition-colors"
+                  >
+                    スタッフ</button
+                  ><button
+                    class="text-[#1F2937] hover:text-[#DD6B20] font-medium transition-colors"
+                  >
+                    お知らせ
+                  </button>
+                </nav>
+                <div class="flex items-center space-x-4">
+                  <div class="flex flex-col items-end">
+                    <span class="text-xs text-[#4B5563]">平日 9:00〜18:00</span
+                    ><a
+                      href="tel:027-000-0000"
+                      class="flex items-center text-[#1A365D] font-bold text-lg hover:text-[#DD6B20] transition-colors"
+                      ><svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        class="lucide lucide-phone w-5 h-5 mr-1"
+                        aria-hidden="true"
+                      >
+                        <path
+                          d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384"
+                        ></path></svg
+                      >027-000-0000</a
+                    >
+                  </div>
+                  <button
+                    class="bg-[#DD6B20] hover:bg-[#C05621] text-white px-6 py-3 rounded-md font-bold transition-colors shadow-md flex items-center"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="lucide lucide-mail w-4 h-4 mr-2"
+                      aria-hidden="true"
+                    >
+                      <path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7"></path>
+                      <rect
+                        x="2"
+                        y="4"
+                        width="20"
+                        height="16"
+                        rx="2"
+                      ></rect></svg
+                    >無料相談
+                  </button>
+                </div>
+              </div>
+              <button class="lg:hidden text-[#1A365D]" aria-label="メニュー">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="lucide lucide-menu w-8 h-8"
+                  aria-hidden="true"
+                >
+                  <path d="M4 12h16"></path>
+                  <path d="M4 18h16"></path>
+                  <path d="M4 6h16"></path>
+                </svg>
+              </button>
+            </div>
+          </div>
+        </header>
+        <main class="flex-grow pt-32 pb-20">
+          <div class="max-w-3xl mx-auto px-4 md:px-6 lg:px-8">
+            <nav class="text-sm text-gray-500 mb-6 flex flex-wrap items-center gap-2" aria-label="パンくず">
+              <a href="index.html" class="hover:text-[#1A365D] transition-colors">ホーム</a>
+              <span aria-hidden="true">/</span>
+              <a href="news.html" class="hover:text-[#1A365D] transition-colors">お知らせ・コラム</a>
+              <span aria-hidden="true">/</span>
+              <span class="text-[#1F2937] font-medium">製造業向け税務相談会</span>
+            </nav>
+            <article class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
+              <div class="relative h-56 md:h-72 overflow-hidden bg-gray-100">
+                <img
+                  src="https://img.dekirukun.ai/cms/articles/05db7f52-d6da-4514-9a80-82672d46a343/article_85159a86_20260322_183648_0bf94aeb.jpg"
+                  alt="太田総合税理士事務所、製造業向け税務相談会開催"
+                  class="w-full h-full object-cover"
+                />
+                <div
+                  class="absolute top-4 left-4 px-3 py-1 text-xs font-bold text-white rounded shadow-sm"
+                  style="background-color: rgb(245, 158, 11)"
+                >
+                  イベント
+                </div>
+              </div>
+              <div class="p-6 md:p-10">
+                <time
+                  class="text-sm text-gray-500 mb-3 flex items-center"
+                  datetime="2026-03-23"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="lucide lucide-calendar w-4 h-4 mr-1"
+                    aria-hidden="true"
+                  >
+                    <path d="M8 2v4"></path>
+                    <path d="M16 2v4"></path>
+                    <rect width="18" height="18" x="3" y="4" rx="2"></rect>
+                    <path d="M3 10h18"></path>
+                  </svg>
+                  2026年3月23日
+                </time>
+                <h1
+                  class="text-2xl md:text-3xl font-serif font-bold text-[#1A365D] mb-8 leading-snug"
+                >
+                  太田総合税理士事務所、製造業向け税務相談会開催
+                </h1>
+                <div class="prose max-w-none">
+                  <p>
+                    群馬県前橋市の太田総合税理士事務所が、製造業に特化した税務相談会を開催します。設備投資や研究開発税制、原価計算に関するご相談など、製造業ならではの論点を個別にご案内します。
+                  </p>
+                  <h2>開催概要</h2>
+                  <p>
+                    事前予約制とし、少人数でじっくりご相談いただける形式です。開催日時・会場の詳細は、お申し込み後に事務局よりご連絡いたします。
+                  </p>
+                  <h2>相談内容の例</h2>
+                  <ul>
+                    <li>減価償却や税務上の耐用年数の考え方</li>
+                    <li>試作費や開発費の計上区分</li>
+                    <li>在庫評価や原価差異の処理</li>
+                  </ul>
+                  <h3>お申し込み・お問い合わせ</h3>
+                  <p>
+                    参加をご希望の方は、お電話またはお問い合わせフォームよりご連絡ください。定員に達し次第締め切らせていただく場合がございます。
+                  </p>
+                </div>
+                <div class="mt-10 pt-8 border-t border-gray-100">
+                  <a
+                    href="news.html"
+                    class="inline-flex items-center text-sm font-bold text-[#1A365D] hover:text-[#DD6B20] transition-colors"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="lucide lucide-arrow-left w-4 h-4 mr-2"
+                      aria-hidden="true"
+                    >
+                      <path d="m12 19-7-7 7-7"></path>
+                      <path d="M19 12H5"></path>
+                    </svg>
+                    お知らせ・コラム一覧に戻る
+                  </a>
+                </div>
+              </div>
+            </article>
+          </div>
+        </main>
+        <footer
+          class="w-full bg-[#0F172A] text-gray-300 py-12 border-t border-gray-800"
+        >
+          <div class="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8 mb-8">
+              <div class="md:col-span-2">
+                <h2 class="text-2xl font-serif font-bold text-white mb-4">
+                  太田総合税理士事務所
+                </h2>
+                <address
+                  class="not-italic text-sm space-y-2 mb-6 text-gray-400"
+                >
+                  <p>〒371-0000</p>
+                  <p>群馬県前橋市〇〇町1-2-3 太田ビル 2F</p>
+                  <p class="flex items-center mt-2 text-white font-bold">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="lucide lucide-phone w-4 h-4 mr-2"
+                      aria-hidden="true"
+                    >
+                      <path
+                        d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384"
+                      ></path></svg
+                    >027-000-0000
+                  </p>
+                  <p>平日 9:00〜18:00（土日祝休）</p>
+                </address>
+              </div>
+              <div>
+                <h3
+                  class="text-white font-bold mb-4 border-b border-gray-700 pb-2"
+                >
+                  メニュー
+                </h3>
+                <ul class="space-y-2 text-sm">
+                  <li>
+                    <button class="hover:text-white transition-colors">
+                      ホーム
+                    </button>
+                  </li>
+                  <li>
+                    <button class="hover:text-white transition-colors">
+                      サービス
+                    </button>
+                  </li>
+                  <li>
+                    <button class="hover:text-white transition-colors">
+                      料金プラン
+                    </button>
+                  </li>
+                  <li>
+                    <button class="hover:text-white transition-colors">
+                      実績・事例
+                    </button>
+                  </li>
+                  <li>
+                    <button class="hover:text-white transition-colors">
+                      スタッフ紹介
+                    </button>
+                  </li>
+                </ul>
+              </div>
+              <div>
+                <h3
+                  class="text-white font-bold mb-4 border-b border-gray-700 pb-2"
+                >
+                  インフォメーション
+                </h3>
+                <ul class="space-y-2 text-sm">
+                  <li>
+                    <button class="hover:text-white transition-colors">
+                      お知らせ・コラム
+                    </button>
+                  </li>
+                  <li>
+                    <button class="hover:text-white transition-colors">
+                      お問い合わせ
+                    </button>
+                  </li>
+                  <li>
+                    <a href="#" class="hover:text-white transition-colors"
+                      >プライバシーポリシー</a
+                    >
+                  </li>
+                  <li>
+                    <a href="#" class="hover:text-white transition-colors"
+                      >特定商取引法に基づく表記</a
+                    >
+                  </li>
+                  <li>
+                    <a href="#" class="hover:text-white transition-colors"
+                      >サイトマップ</a
+                    >
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div
+              class="border-t border-gray-800 pt-8 text-center text-sm text-gray-500 flex flex-col md:flex-row justify-between items-center"
+            >
+              <p>© 2026 Ota Tax Accounting Office. All Rights Reserved.</p>
+              <p class="mt-2 md:mt-0">
+                群馬県前橋市の税理士・経営コンサルティング
+              </p>
+            </div>
+          </div>
+        </footer>
+      </div>
+    </div>
+
+    <!-- ランタイム: グローバル関数（モジュール script より前に定義） -->
+
+    <!-- ユーザーコード（import 文がそのまま残っている ESM） -->
+  </body>
+</html>

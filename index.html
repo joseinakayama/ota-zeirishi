@@ -1,0 +1,4224 @@
+<!doctype html>
+<html lang="ja" title="">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Import Maps: ベアスペシファイア → esm.sh URL -->
+
+    <!-- モジュールプリロード（初回ロード高速化） -->
+    <link rel="modulepreload" href="https://esm.sh/react@18" />
+    <link rel="modulepreload" href="https://esm.sh/react-dom@18" />
+    <link
+      rel="modulepreload"
+      href="https://esm.sh/lucide-react@0.523.0?external=react,react-dom"
+    />
+
+    <!-- Tailwind CSS -->
+
+    <style>
+      /* Reset and base styles */
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+
+      html,
+      body,
+      #root {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        overflow-x: hidden;
+      }
+
+      body {
+        font-family:
+          system-ui,
+          -apple-system,
+          BlinkMacSystemFont,
+          "Segoe UI",
+          Roboto,
+          sans-serif;
+        line-height: 1.5;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      img,
+      picture,
+      video,
+      canvas,
+      svg {
+        display: block;
+        max-width: 100%;
+      }
+
+      input,
+      button,
+      textarea,
+      select {
+        font: inherit;
+      }
+
+      p,
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        overflow-wrap: break-word;
+      }
+
+      /* ===== Rich text (prose) styles for CMS content ===== */
+      .prose {
+        color: #374151;
+        line-height: 1.7;
+      }
+      .prose h1 {
+        font-size: 2rem;
+        font-weight: 700;
+        line-height: 1.3;
+        margin-top: 1.5rem;
+        margin-bottom: 0.75rem;
+        color: #111827;
+      }
+      .prose h2 {
+        font-size: 1.5rem;
+        font-weight: 600;
+        line-height: 1.4;
+        margin-top: 1.25rem;
+        margin-bottom: 0.5rem;
+        color: #1f2937;
+      }
+      .prose h3 {
+        font-size: 1.25rem;
+        font-weight: 600;
+        line-height: 1.5;
+        margin-top: 1rem;
+        margin-bottom: 0.5rem;
+        color: #374151;
+      }
+      .prose p {
+        margin-bottom: 1rem;
+        line-height: 1.7;
+      }
+      .prose ul,
+      .prose ol {
+        padding-left: 1.5rem;
+        margin-bottom: 1rem;
+      }
+      .prose ul {
+        list-style-type: disc;
+      }
+      .prose ol {
+        list-style-type: decimal;
+      }
+      .prose li {
+        margin-bottom: 0.5rem;
+        line-height: 1.6;
+      }
+      .prose blockquote {
+        border-left: 4px solid #d1d5db;
+        padding-left: 1.25rem;
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
+        margin: 0 0 1rem 0;
+        color: #6b7280;
+        font-style: italic;
+      }
+      .prose blockquote p {
+        margin-bottom: 0;
+      }
+      .prose code {
+        background-color: #f3f4f6;
+        padding: 0.125rem 0.375rem;
+        border-radius: 0.25rem;
+        font-family: ui-monospace, monospace;
+        font-size: 0.875em;
+        color: #e11d48;
+      }
+      .prose pre {
+        background-color: #1f2937;
+        color: #f9fafb;
+        padding: 1rem;
+        border-radius: 0.5rem;
+        overflow-x: auto;
+        margin-bottom: 1rem;
+      }
+      .prose pre code {
+        background-color: transparent;
+        padding: 0;
+        color: inherit;
+      }
+      .prose a {
+        color: #3b82f6;
+        text-decoration: underline;
+      }
+      .prose a:hover {
+        color: #2563eb;
+      }
+      .prose img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 0.5rem;
+        margin: 1rem 0;
+      }
+      .prose hr {
+        border: none;
+        border-top: 1px solid #e5e7eb;
+        margin: 1.5rem 0;
+      }
+      .prose strong {
+        font-weight: 600;
+        color: #111827;
+      }
+      .prose em {
+        font-style: italic;
+      }
+      .prose u {
+        text-decoration: underline;
+      }
+      .prose s {
+        text-decoration: line-through;
+      }
+
+      /* Tiptap text alignment support */
+      .prose [style*="text-align: center"],
+      .prose [style*="text-align:center"] {
+        text-align: center !important;
+      }
+      .prose [style*="text-align: right"],
+      .prose [style*="text-align:right"] {
+        text-align: right !important;
+      }
+      .prose [style*="text-align: justify"],
+      .prose [style*="text-align:justify"] {
+        text-align: justify !important;
+      }
+    </style>
+    <style>
+      *,
+      ::before,
+      ::after {
+        --tw-border-spacing-x: 0;
+        --tw-border-spacing-y: 0;
+        --tw-translate-x: 0;
+        --tw-translate-y: 0;
+        --tw-rotate: 0;
+        --tw-skew-x: 0;
+        --tw-skew-y: 0;
+        --tw-scale-x: 1;
+        --tw-scale-y: 1;
+        --tw-pan-x: ;
+        --tw-pan-y: ;
+        --tw-pinch-zoom: ;
+        --tw-scroll-snap-strictness: proximity;
+        --tw-gradient-from-position: ;
+        --tw-gradient-via-position: ;
+        --tw-gradient-to-position: ;
+        --tw-ordinal: ;
+        --tw-slashed-zero: ;
+        --tw-numeric-figure: ;
+        --tw-numeric-spacing: ;
+        --tw-numeric-fraction: ;
+        --tw-ring-inset: ;
+        --tw-ring-offset-width: 0px;
+        --tw-ring-offset-color: #fff;
+        --tw-ring-color: rgb(59 130 246 / 0.5);
+        --tw-ring-offset-shadow: 0 0 #0000;
+        --tw-ring-shadow: 0 0 #0000;
+        --tw-shadow: 0 0 #0000;
+        --tw-shadow-colored: 0 0 #0000;
+        --tw-blur: ;
+        --tw-brightness: ;
+        --tw-contrast: ;
+        --tw-grayscale: ;
+        --tw-hue-rotate: ;
+        --tw-invert: ;
+        --tw-saturate: ;
+        --tw-sepia: ;
+        --tw-drop-shadow: ;
+        --tw-backdrop-blur: ;
+        --tw-backdrop-brightness: ;
+        --tw-backdrop-contrast: ;
+        --tw-backdrop-grayscale: ;
+        --tw-backdrop-hue-rotate: ;
+        --tw-backdrop-invert: ;
+        --tw-backdrop-opacity: ;
+        --tw-backdrop-saturate: ;
+        --tw-backdrop-sepia: ;
+        --tw-contain-size: ;
+        --tw-contain-layout: ;
+        --tw-contain-paint: ;
+        --tw-contain-style: ;
+      }
+      ::backdrop {
+        --tw-border-spacing-x: 0;
+        --tw-border-spacing-y: 0;
+        --tw-translate-x: 0;
+        --tw-translate-y: 0;
+        --tw-rotate: 0;
+        --tw-skew-x: 0;
+        --tw-skew-y: 0;
+        --tw-scale-x: 1;
+        --tw-scale-y: 1;
+        --tw-pan-x: ;
+        --tw-pan-y: ;
+        --tw-pinch-zoom: ;
+        --tw-scroll-snap-strictness: proximity;
+        --tw-gradient-from-position: ;
+        --tw-gradient-via-position: ;
+        --tw-gradient-to-position: ;
+        --tw-ordinal: ;
+        --tw-slashed-zero: ;
+        --tw-numeric-figure: ;
+        --tw-numeric-spacing: ;
+        --tw-numeric-fraction: ;
+        --tw-ring-inset: ;
+        --tw-ring-offset-width: 0px;
+        --tw-ring-offset-color: #fff;
+        --tw-ring-color: rgb(59 130 246 / 0.5);
+        --tw-ring-offset-shadow: 0 0 #0000;
+        --tw-ring-shadow: 0 0 #0000;
+        --tw-shadow: 0 0 #0000;
+        --tw-shadow-colored: 0 0 #0000;
+        --tw-blur: ;
+        --tw-brightness: ;
+        --tw-contrast: ;
+        --tw-grayscale: ;
+        --tw-hue-rotate: ;
+        --tw-invert: ;
+        --tw-saturate: ;
+        --tw-sepia: ;
+        --tw-drop-shadow: ;
+        --tw-backdrop-blur: ;
+        --tw-backdrop-brightness: ;
+        --tw-backdrop-contrast: ;
+        --tw-backdrop-grayscale: ;
+        --tw-backdrop-hue-rotate: ;
+        --tw-backdrop-invert: ;
+        --tw-backdrop-opacity: ;
+        --tw-backdrop-saturate: ;
+        --tw-backdrop-sepia: ;
+        --tw-contain-size: ;
+        --tw-contain-layout: ;
+        --tw-contain-paint: ;
+        --tw-contain-style: ;
+      } /* ! tailwindcss v3.4.17 | MIT License | https://tailwindcss.com */
+      *,
+      ::after,
+      ::before {
+        box-sizing: border-box;
+        border-width: 0;
+        border-style: solid;
+        border-color: #e5e7eb;
+      }
+      ::after,
+      ::before {
+        --tw-content: "";
+      }
+      :host,
+      html {
+        line-height: 1.5;
+        -webkit-text-size-adjust: 100%;
+        -moz-tab-size: 4;
+        tab-size: 4;
+        font-family:
+          ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji",
+          "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+        font-feature-settings: normal;
+        font-variation-settings: normal;
+        -webkit-tap-highlight-color: transparent;
+      }
+      body {
+        margin: 0;
+        line-height: inherit;
+      }
+      hr {
+        height: 0;
+        color: inherit;
+        border-top-width: 1px;
+      }
+      abbr:where([title]) {
+        -webkit-text-decoration: underline dotted;
+        text-decoration: underline dotted;
+      }
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        font-size: inherit;
+        font-weight: inherit;
+      }
+      a {
+        color: inherit;
+        text-decoration: inherit;
+      }
+      b,
+      strong {
+        font-weight: bolder;
+      }
+      code,
+      kbd,
+      pre,
+      samp {
+        font-family:
+          ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+          "Liberation Mono", "Courier New", monospace;
+        font-feature-settings: normal;
+        font-variation-settings: normal;
+        font-size: 1em;
+      }
+      small {
+        font-size: 80%;
+      }
+      sub,
+      sup {
+        font-size: 75%;
+        line-height: 0;
+        position: relative;
+        vertical-align: baseline;
+      }
+      sub {
+        bottom: -0.25em;
+      }
+      sup {
+        top: -0.5em;
+      }
+      table {
+        text-indent: 0;
+        border-color: inherit;
+        border-collapse: collapse;
+      }
+      button,
+      input,
+      optgroup,
+      select,
+      textarea {
+        font-family: inherit;
+        font-feature-settings: inherit;
+        font-variation-settings: inherit;
+        font-size: 100%;
+        font-weight: inherit;
+        line-height: inherit;
+        letter-spacing: inherit;
+        color: inherit;
+        margin: 0;
+        padding: 0;
+      }
+      button,
+      select {
+        text-transform: none;
+      }
+      button,
+      input:where([type="button"]),
+      input:where([type="reset"]),
+      input:where([type="submit"]) {
+        -webkit-appearance: button;
+        background-color: transparent;
+        background-image: none;
+      }
+      :-moz-focusring {
+        outline: auto;
+      }
+      :-moz-ui-invalid {
+        box-shadow: none;
+      }
+      progress {
+        vertical-align: baseline;
+      }
+      ::-webkit-inner-spin-button,
+      ::-webkit-outer-spin-button {
+        height: auto;
+      }
+      [type="search"] {
+        -webkit-appearance: textfield;
+        outline-offset: -2px;
+      }
+      ::-webkit-search-decoration {
+        -webkit-appearance: none;
+      }
+      ::-webkit-file-upload-button {
+        -webkit-appearance: button;
+        font: inherit;
+      }
+      summary {
+        display: list-item;
+      }
+      blockquote,
+      dd,
+      dl,
+      figure,
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6,
+      hr,
+      p,
+      pre {
+        margin: 0;
+      }
+      fieldset {
+        margin: 0;
+        padding: 0;
+      }
+      legend {
+        padding: 0;
+      }
+      menu,
+      ol,
+      ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+      dialog {
+        padding: 0;
+      }
+      textarea {
+        resize: vertical;
+      }
+      input::placeholder,
+      textarea::placeholder {
+        opacity: 1;
+        color: #9ca3af;
+      }
+      [role="button"],
+      button {
+        cursor: pointer;
+      }
+      :disabled {
+        cursor: default;
+      }
+      audio,
+      canvas,
+      embed,
+      iframe,
+      img,
+      object,
+      svg,
+      video {
+        display: block;
+        vertical-align: middle;
+      }
+      img,
+      video {
+        max-width: 100%;
+        height: auto;
+      }
+      [hidden]:where(:not([hidden="until-found"])) {
+        display: none;
+      }
+      .fixed {
+        position: fixed;
+      }
+      .absolute {
+        position: absolute;
+      }
+      .relative {
+        position: relative;
+      }
+      .inset-0 {
+        inset: 0px;
+      }
+      .-bottom-24 {
+        bottom: -6rem;
+      }
+      .-left-24 {
+        left: -6rem;
+      }
+      .-right-2 {
+        right: -0.5rem;
+      }
+      .-right-24 {
+        right: -6rem;
+      }
+      .-top-2 {
+        top: -0.5rem;
+      }
+      .-top-24 {
+        top: -6rem;
+      }
+      .left-\[10\%\] {
+        left: 10%;
+      }
+      .right-0 {
+        right: 0px;
+      }
+      .right-\[10\%\] {
+        right: 10%;
+      }
+      .top-0 {
+        top: 0px;
+      }
+      .top-12 {
+        top: 3rem;
+      }
+      .left-4 {
+        left: 1rem;
+      }
+      .top-4 {
+        top: 1rem;
+      }
+      .z-0 {
+        z-index: 0;
+      }
+      .z-10 {
+        z-index: 10;
+      }
+      .z-50 {
+        z-index: 50;
+      }
+      .mx-auto {
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .mb-1 {
+        margin-bottom: 0.25rem;
+      }
+      .mb-10 {
+        margin-bottom: 2.5rem;
+      }
+      .mb-12 {
+        margin-bottom: 3rem;
+      }
+      .mb-16 {
+        margin-bottom: 4rem;
+      }
+      .mb-2 {
+        margin-bottom: 0.5rem;
+      }
+      .mb-20 {
+        margin-bottom: 5rem;
+      }
+      .mb-3 {
+        margin-bottom: 0.75rem;
+      }
+      .mb-4 {
+        margin-bottom: 1rem;
+      }
+      .mb-6 {
+        margin-bottom: 1.5rem;
+      }
+      .mb-8 {
+        margin-bottom: 2rem;
+      }
+      .ml-1 {
+        margin-left: 0.25rem;
+      }
+      .ml-2 {
+        margin-left: 0.5rem;
+      }
+      .mr-1 {
+        margin-right: 0.25rem;
+      }
+      .mr-2 {
+        margin-right: 0.5rem;
+      }
+      .mr-3 {
+        margin-right: 0.75rem;
+      }
+      .mt-0\.5 {
+        margin-top: 0.125rem;
+      }
+      .mt-1 {
+        margin-top: 0.25rem;
+      }
+      .mt-10 {
+        margin-top: 2.5rem;
+      }
+      .mt-2 {
+        margin-top: 0.5rem;
+      }
+      .mt-8 {
+        margin-top: 2rem;
+      }
+      .mt-auto {
+        margin-top: auto;
+      }
+      .mt-4 {
+        margin-top: 1rem;
+      }
+      .mt-16 {
+        margin-top: 4rem;
+      }
+      .line-clamp-2 {
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+      }
+      .line-clamp-3 {
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 3;
+      }
+      .block {
+        display: block;
+      }
+      .inline-block {
+        display: inline-block;
+      }
+      .flex {
+        display: flex;
+      }
+      .inline-flex {
+        display: inline-flex;
+      }
+      .grid {
+        display: grid;
+      }
+      .hidden {
+        display: none;
+      }
+      .aspect-square {
+        aspect-ratio: 1 / 1;
+      }
+      .h-1 {
+        height: 0.25rem;
+      }
+      .h-10 {
+        height: 2.5rem;
+      }
+      .h-12 {
+        height: 3rem;
+      }
+      .h-16 {
+        height: 4rem;
+      }
+      .h-20 {
+        height: 5rem;
+      }
+      .h-24 {
+        height: 6rem;
+      }
+      .h-4 {
+        height: 1rem;
+      }
+      .h-48 {
+        height: 12rem;
+      }
+      .h-5 {
+        height: 1.25rem;
+      }
+      .h-6 {
+        height: 1.5rem;
+      }
+      .h-64 {
+        height: 16rem;
+      }
+      .h-8 {
+        height: 2rem;
+      }
+      .h-96 {
+        height: 24rem;
+      }
+      .h-full {
+        height: 100%;
+      }
+      .h-auto {
+        height: auto;
+      }
+      .max-h-\[500px\] {
+        max-height: 500px;
+      }
+      .min-h-screen {
+        min-height: 100vh;
+      }
+      .w-1\/3 {
+        width: 33.333333%;
+      }
+      .w-10 {
+        width: 2.5rem;
+      }
+      .w-12 {
+        width: 3rem;
+      }
+      .w-16 {
+        width: 4rem;
+      }
+      .w-2\/3 {
+        width: 66.666667%;
+      }
+      .w-20 {
+        width: 5rem;
+      }
+      .w-24 {
+        width: 6rem;
+      }
+      .w-4 {
+        width: 1rem;
+      }
+      .w-4\/5 {
+        width: 80%;
+      }
+      .w-5 {
+        width: 1.25rem;
+      }
+      .w-6 {
+        width: 1.5rem;
+      }
+      .w-64 {
+        width: 16rem;
+      }
+      .w-8 {
+        width: 2rem;
+      }
+      .w-96 {
+        width: 24rem;
+      }
+      .w-full {
+        width: 100%;
+      }
+      .w-1\/4 {
+        width: 25%;
+      }
+      .w-3\/4 {
+        width: 75%;
+      }
+      .w-5\/6 {
+        width: 83.333333%;
+      }
+      .max-w-2xl {
+        max-width: 42rem;
+      }
+      .max-w-3xl {
+        max-width: 48rem;
+      }
+      .max-w-4xl {
+        max-width: 56rem;
+      }
+      .max-w-5xl {
+        max-width: 64rem;
+      }
+      .max-w-6xl {
+        max-width: 72rem;
+      }
+      .max-w-7xl {
+        max-width: 80rem;
+      }
+      .max-w-none {
+        max-width: none;
+      }
+      .flex-shrink-0 {
+        flex-shrink: 0;
+      }
+      .flex-grow {
+        flex-grow: 1;
+      }
+      .-translate-y-1\/2 {
+        --tw-translate-y: -50%;
+        transform: translate(var(--tw-translate-x), var(--tw-translate-y))
+          rotate(var(--tw-rotate)) skewX(var(--tw-skew-x))
+          skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x))
+          scaleY(var(--tw-scale-y));
+      }
+      .translate-x-1\/3 {
+        --tw-translate-x: 33.333333%;
+        transform: translate(var(--tw-translate-x), var(--tw-translate-y))
+          rotate(var(--tw-rotate)) skewX(var(--tw-skew-x))
+          skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x))
+          scaleY(var(--tw-scale-y));
+      }
+      .transform {
+        transform: translate(var(--tw-translate-x), var(--tw-translate-y))
+          rotate(var(--tw-rotate)) skewX(var(--tw-skew-x))
+          skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x))
+          scaleY(var(--tw-scale-y));
+      }
+      @keyframes pulse {
+        50% {
+          opacity: 0.5;
+        }
+      }
+      .animate-pulse {
+        animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+      }
+      @keyframes spin {
+        to {
+          transform: rotate(360deg);
+        }
+      }
+      .animate-spin {
+        animation: spin 1s linear infinite;
+      }
+      .cursor-pointer {
+        cursor: pointer;
+      }
+      .grid-cols-3 {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+      .flex-col {
+        flex-direction: column;
+      }
+      .flex-wrap {
+        flex-wrap: wrap;
+      }
+      .items-start {
+        align-items: flex-start;
+      }
+      .items-end {
+        align-items: flex-end;
+      }
+      .items-center {
+        align-items: center;
+      }
+      .justify-center {
+        justify-content: center;
+      }
+      .justify-between {
+        justify-content: space-between;
+      }
+      .gap-12 {
+        gap: 3rem;
+      }
+      .gap-4 {
+        gap: 1rem;
+      }
+      .gap-6 {
+        gap: 1.5rem;
+      }
+      .gap-8 {
+        gap: 2rem;
+      }
+      .gap-2 {
+        gap: 0.5rem;
+      }
+      .space-x-4 > :not([hidden]) ~ :not([hidden]) {
+        --tw-space-x-reverse: 0;
+        margin-right: calc(1rem * var(--tw-space-x-reverse));
+        margin-left: calc(1rem * calc(1 - var(--tw-space-x-reverse)));
+      }
+      .space-x-6 > :not([hidden]) ~ :not([hidden]) {
+        --tw-space-x-reverse: 0;
+        margin-right: calc(1.5rem * var(--tw-space-x-reverse));
+        margin-left: calc(1.5rem * calc(1 - var(--tw-space-x-reverse)));
+      }
+      .space-x-8 > :not([hidden]) ~ :not([hidden]) {
+        --tw-space-x-reverse: 0;
+        margin-right: calc(2rem * var(--tw-space-x-reverse));
+        margin-left: calc(2rem * calc(1 - var(--tw-space-x-reverse)));
+      }
+      .space-y-1 > :not([hidden]) ~ :not([hidden]) {
+        --tw-space-y-reverse: 0;
+        margin-top: calc(0.25rem * calc(1 - var(--tw-space-y-reverse)));
+        margin-bottom: calc(0.25rem * var(--tw-space-y-reverse));
+      }
+      .space-y-2 > :not([hidden]) ~ :not([hidden]) {
+        --tw-space-y-reverse: 0;
+        margin-top: calc(0.5rem * calc(1 - var(--tw-space-y-reverse)));
+        margin-bottom: calc(0.5rem * var(--tw-space-y-reverse));
+      }
+      .space-y-4 > :not([hidden]) ~ :not([hidden]) {
+        --tw-space-y-reverse: 0;
+        margin-top: calc(1rem * calc(1 - var(--tw-space-y-reverse)));
+        margin-bottom: calc(1rem * var(--tw-space-y-reverse));
+      }
+      .space-y-8 > :not([hidden]) ~ :not([hidden]) {
+        --tw-space-y-reverse: 0;
+        margin-top: calc(2rem * calc(1 - var(--tw-space-y-reverse)));
+        margin-bottom: calc(2rem * var(--tw-space-y-reverse));
+      }
+      .space-y-6 > :not([hidden]) ~ :not([hidden]) {
+        --tw-space-y-reverse: 0;
+        margin-top: calc(1.5rem * calc(1 - var(--tw-space-y-reverse)));
+        margin-bottom: calc(1.5rem * var(--tw-space-y-reverse));
+      }
+      .self-start {
+        align-self: flex-start;
+      }
+      .overflow-hidden {
+        overflow: hidden;
+      }
+      .rounded {
+        border-radius: 0.25rem;
+      }
+      .rounded-2xl {
+        border-radius: 1rem;
+      }
+      .rounded-full {
+        border-radius: 9999px;
+      }
+      .rounded-lg {
+        border-radius: 0.5rem;
+      }
+      .rounded-md {
+        border-radius: 0.375rem;
+      }
+      .rounded-xl {
+        border-radius: 0.75rem;
+      }
+      .rounded-b-xl {
+        border-bottom-right-radius: 0.75rem;
+        border-bottom-left-radius: 0.75rem;
+      }
+      .rounded-t-xl {
+        border-top-left-radius: 0.75rem;
+        border-top-right-radius: 0.75rem;
+      }
+      .rounded-br-lg {
+        border-bottom-right-radius: 0.5rem;
+      }
+      .border {
+        border-width: 1px;
+      }
+      .border-2 {
+        border-width: 2px;
+      }
+      .border-4 {
+        border-width: 4px;
+      }
+      .border-b {
+        border-bottom-width: 1px;
+      }
+      .border-b-2 {
+        border-bottom-width: 2px;
+      }
+      .border-l-4 {
+        border-left-width: 4px;
+      }
+      .border-t {
+        border-top-width: 1px;
+      }
+      .border-t-4 {
+        border-top-width: 4px;
+      }
+      .border-\[\#1A365D\] {
+        --tw-border-opacity: 1;
+        border-color: rgb(26 54 93 / var(--tw-border-opacity, 1));
+      }
+      .border-\[\#DD6B20\] {
+        --tw-border-opacity: 1;
+        border-color: rgb(221 107 32 / var(--tw-border-opacity, 1));
+      }
+      .border-gray-100 {
+        --tw-border-opacity: 1;
+        border-color: rgb(243 244 246 / var(--tw-border-opacity, 1));
+      }
+      .border-gray-200 {
+        --tw-border-opacity: 1;
+        border-color: rgb(229 231 235 / var(--tw-border-opacity, 1));
+      }
+      .border-gray-700 {
+        --tw-border-opacity: 1;
+        border-color: rgb(55 65 81 / var(--tw-border-opacity, 1));
+      }
+      .border-gray-800 {
+        --tw-border-opacity: 1;
+        border-color: rgb(31 41 55 / var(--tw-border-opacity, 1));
+      }
+      .border-white {
+        --tw-border-opacity: 1;
+        border-color: rgb(255 255 255 / var(--tw-border-opacity, 1));
+      }
+      .border-white\/20 {
+        border-color: rgb(255 255 255 / 0.2);
+      }
+      .border-white\/30 {
+        border-color: rgb(255 255 255 / 0.3);
+      }
+      .border-gray-300 {
+        --tw-border-opacity: 1;
+        border-color: rgb(209 213 219 / var(--tw-border-opacity, 1));
+      }
+      .bg-\[\#0F172A\] {
+        --tw-bg-opacity: 1;
+        background-color: rgb(15 23 42 / var(--tw-bg-opacity, 1));
+      }
+      .bg-\[\#1A365D\] {
+        --tw-bg-opacity: 1;
+        background-color: rgb(26 54 93 / var(--tw-bg-opacity, 1));
+      }
+      .bg-\[\#2F855A\] {
+        --tw-bg-opacity: 1;
+        background-color: rgb(47 133 90 / var(--tw-bg-opacity, 1));
+      }
+      .bg-\[\#2F855A\]\/10 {
+        background-color: rgb(47 133 90 / 0.1);
+      }
+      .bg-\[\#DD6B20\] {
+        --tw-bg-opacity: 1;
+        background-color: rgb(221 107 32 / var(--tw-bg-opacity, 1));
+      }
+      .bg-\[\#F9FAFB\] {
+        --tw-bg-opacity: 1;
+        background-color: rgb(249 250 251 / var(--tw-bg-opacity, 1));
+      }
+      .bg-blue-50 {
+        --tw-bg-opacity: 1;
+        background-color: rgb(239 246 255 / var(--tw-bg-opacity, 1));
+      }
+      .bg-gray-200 {
+        --tw-bg-opacity: 1;
+        background-color: rgb(229 231 235 / var(--tw-bg-opacity, 1));
+      }
+      .bg-gray-50 {
+        --tw-bg-opacity: 1;
+        background-color: rgb(249 250 251 / var(--tw-bg-opacity, 1));
+      }
+      .bg-white {
+        --tw-bg-opacity: 1;
+        background-color: rgb(255 255 255 / var(--tw-bg-opacity, 1));
+      }
+      .bg-white\/10 {
+        background-color: rgb(255 255 255 / 0.1);
+      }
+      .bg-white\/20 {
+        background-color: rgb(255 255 255 / 0.2);
+      }
+      .bg-white\/95 {
+        background-color: rgb(255 255 255 / 0.95);
+      }
+      .bg-gray-100 {
+        --tw-bg-opacity: 1;
+        background-color: rgb(243 244 246 / var(--tw-bg-opacity, 1));
+      }
+      .bg-\[url\(\'https\:\/\/www\.transparenttextures\.com\/patterns\/cubes\.png\'\)\] {
+        background-image: url("https://www.transparenttextures.com/patterns/cubes.png");
+      }
+      .bg-gradient-to-r {
+        background-image: linear-gradient(to right, var(--tw-gradient-stops));
+      }
+      .from-\[\#1A365D\] {
+        --tw-gradient-from: #1a365d var(--tw-gradient-from-position);
+        --tw-gradient-to: rgb(26 54 93 / 0) var(--tw-gradient-to-position);
+        --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+      }
+      .to-transparent {
+        --tw-gradient-to: transparent var(--tw-gradient-to-position);
+      }
+      .object-cover {
+        object-fit: cover;
+      }
+      .p-2 {
+        padding: 0.5rem;
+      }
+      .p-3 {
+        padding: 0.75rem;
+      }
+      .p-4 {
+        padding: 1rem;
+      }
+      .p-6 {
+        padding: 1.5rem;
+      }
+      .p-8 {
+        padding: 2rem;
+      }
+      .px-3 {
+        padding-left: 0.75rem;
+        padding-right: 0.75rem;
+      }
+      .px-4 {
+        padding-left: 1rem;
+        padding-right: 1rem;
+      }
+      .px-6 {
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+      }
+      .px-8 {
+        padding-left: 2rem;
+        padding-right: 2rem;
+      }
+      .py-1 {
+        padding-top: 0.25rem;
+        padding-bottom: 0.25rem;
+      }
+      .py-1\.5 {
+        padding-top: 0.375rem;
+        padding-bottom: 0.375rem;
+      }
+      .py-12 {
+        padding-top: 3rem;
+        padding-bottom: 3rem;
+      }
+      .py-16 {
+        padding-top: 4rem;
+        padding-bottom: 4rem;
+      }
+      .py-2 {
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
+      }
+      .py-20 {
+        padding-top: 5rem;
+        padding-bottom: 5rem;
+      }
+      .py-3 {
+        padding-top: 0.75rem;
+        padding-bottom: 0.75rem;
+      }
+      .py-4 {
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+      }
+      .pb-2 {
+        padding-bottom: 0.5rem;
+      }
+      .pb-20 {
+        padding-bottom: 5rem;
+      }
+      .pb-4 {
+        padding-bottom: 1rem;
+      }
+      .pr-4 {
+        padding-right: 1rem;
+      }
+      .pt-2 {
+        padding-top: 0.5rem;
+      }
+      .pt-28 {
+        padding-top: 7rem;
+      }
+      .pt-8 {
+        padding-top: 2rem;
+      }
+      .pt-4 {
+        padding-top: 1rem;
+      }
+      .pt-32 {
+        padding-top: 8rem;
+      }
+      .text-left {
+        text-align: left;
+      }
+      .text-center {
+        text-align: center;
+      }
+      .font-sans {
+        font-family:
+          ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji",
+          "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+      }
+      .font-serif {
+        font-family:
+          ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      .text-2xl {
+        font-size: 1.5rem;
+        line-height: 2rem;
+      }
+      .text-3xl {
+        font-size: 1.875rem;
+        line-height: 2.25rem;
+      }
+      .text-4xl {
+        font-size: 2.25rem;
+        line-height: 2.5rem;
+      }
+      .text-lg {
+        font-size: 1.125rem;
+        line-height: 1.75rem;
+      }
+      .text-sm {
+        font-size: 0.875rem;
+        line-height: 1.25rem;
+      }
+      .text-xl {
+        font-size: 1.25rem;
+        line-height: 1.75rem;
+      }
+      .text-xs {
+        font-size: 0.75rem;
+        line-height: 1rem;
+      }
+      .font-bold {
+        font-weight: 700;
+      }
+      .font-medium {
+        font-weight: 500;
+      }
+      .font-normal {
+        font-weight: 400;
+      }
+      .not-italic {
+        font-style: normal;
+      }
+      .leading-relaxed {
+        line-height: 1.625;
+      }
+      .leading-tight {
+        line-height: 1.25;
+      }
+      .tracking-wider {
+        letter-spacing: 0.05em;
+      }
+      .tracking-widest {
+        letter-spacing: 0.1em;
+      }
+      .text-\[\#1A365D\] {
+        --tw-text-opacity: 1;
+        color: rgb(26 54 93 / var(--tw-text-opacity, 1));
+      }
+      .text-\[\#1F2937\] {
+        --tw-text-opacity: 1;
+        color: rgb(31 41 55 / var(--tw-text-opacity, 1));
+      }
+      .text-\[\#2F855A\] {
+        --tw-text-opacity: 1;
+        color: rgb(47 133 90 / var(--tw-text-opacity, 1));
+      }
+      .text-\[\#4B5563\] {
+        --tw-text-opacity: 1;
+        color: rgb(75 85 99 / var(--tw-text-opacity, 1));
+      }
+      .text-\[\#DD6B20\] {
+        --tw-text-opacity: 1;
+        color: rgb(221 107 32 / var(--tw-text-opacity, 1));
+      }
+      .text-gray-200 {
+        --tw-text-opacity: 1;
+        color: rgb(229 231 235 / var(--tw-text-opacity, 1));
+      }
+      .text-gray-300 {
+        --tw-text-opacity: 1;
+        color: rgb(209 213 219 / var(--tw-text-opacity, 1));
+      }
+      .text-gray-400 {
+        --tw-text-opacity: 1;
+        color: rgb(156 163 175 / var(--tw-text-opacity, 1));
+      }
+      .text-gray-500 {
+        --tw-text-opacity: 1;
+        color: rgb(107 114 128 / var(--tw-text-opacity, 1));
+      }
+      .text-white {
+        --tw-text-opacity: 1;
+        color: rgb(255 255 255 / var(--tw-text-opacity, 1));
+      }
+      .text-white\/90 {
+        color: rgb(255 255 255 / 0.9);
+      }
+      .text-red-500 {
+        --tw-text-opacity: 1;
+        color: rgb(239 68 68 / var(--tw-text-opacity, 1));
+      }
+      .text-gray-600 {
+        --tw-text-opacity: 1;
+        color: rgb(75 85 99 / var(--tw-text-opacity, 1));
+      }
+      .opacity-10 {
+        opacity: 0.1;
+      }
+      .opacity-30 {
+        opacity: 0.3;
+      }
+      .opacity-5 {
+        opacity: 0.05;
+      }
+      .shadow-2xl {
+        --tw-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+        --tw-shadow-colored: 0 25px 50px -12px var(--tw-shadow-color);
+        box-shadow:
+          var(--tw-ring-offset-shadow, 0 0 #0000),
+          var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+      }
+      .shadow-lg {
+        --tw-shadow:
+          0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+        --tw-shadow-colored:
+          0 10px 15px -3px var(--tw-shadow-color),
+          0 4px 6px -4px var(--tw-shadow-color);
+        box-shadow:
+          var(--tw-ring-offset-shadow, 0 0 #0000),
+          var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+      }
+      .shadow-md {
+        --tw-shadow:
+          0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+        --tw-shadow-colored:
+          0 4px 6px -1px var(--tw-shadow-color),
+          0 2px 4px -2px var(--tw-shadow-color);
+        box-shadow:
+          var(--tw-ring-offset-shadow, 0 0 #0000),
+          var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+      }
+      .shadow-sm {
+        --tw-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+        --tw-shadow-colored: 0 1px 2px 0 var(--tw-shadow-color);
+        box-shadow:
+          var(--tw-ring-offset-shadow, 0 0 #0000),
+          var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+      }
+      .shadow-xl {
+        --tw-shadow:
+          0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+        --tw-shadow-colored:
+          0 20px 25px -5px var(--tw-shadow-color),
+          0 8px 10px -6px var(--tw-shadow-color);
+        box-shadow:
+          var(--tw-ring-offset-shadow, 0 0 #0000),
+          var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+      }
+      .backdrop-blur-sm {
+        --tw-backdrop-blur: blur(4px);
+        -webkit-backdrop-filter: var(--tw-backdrop-blur)
+          var(--tw-backdrop-brightness) var(--tw-backdrop-contrast)
+          var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate)
+          var(--tw-backdrop-invert) var(--tw-backdrop-opacity)
+          var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);
+        backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness)
+          var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale)
+          var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert)
+          var(--tw-backdrop-opacity) var(--tw-backdrop-saturate)
+          var(--tw-backdrop-sepia);
+      }
+      .transition-all {
+        transition-property: all;
+        transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+        transition-duration: 150ms;
+      }
+      .transition-colors {
+        transition-property:
+          color,
+          background-color,
+          border-color,
+          fill,
+          stroke,
+          -webkit-text-decoration-color;
+        transition-property:
+          color, background-color, border-color, text-decoration-color, fill,
+          stroke;
+        transition-property:
+          color,
+          background-color,
+          border-color,
+          text-decoration-color,
+          fill,
+          stroke,
+          -webkit-text-decoration-color;
+        transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+        transition-duration: 150ms;
+      }
+      .transition-shadow {
+        transition-property: box-shadow;
+        transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+        transition-duration: 150ms;
+      }
+      .transition-transform {
+        transition-property: transform;
+        transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+        transition-duration: 150ms;
+      }
+      .duration-300 {
+        transition-duration: 300ms;
+      }
+      .duration-500 {
+        transition-duration: 500ms;
+      }
+      .hover\:scale-105:hover {
+        --tw-scale-x: 1.05;
+        --tw-scale-y: 1.05;
+        transform: translate(var(--tw-translate-x), var(--tw-translate-y))
+          rotate(var(--tw-rotate)) skewX(var(--tw-skew-x))
+          skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x))
+          scaleY(var(--tw-scale-y));
+      }
+      .hover\:bg-\[\#C05621\]:hover {
+        --tw-bg-opacity: 1;
+        background-color: rgb(192 86 33 / var(--tw-bg-opacity, 1));
+      }
+      .hover\:bg-gray-50:hover {
+        --tw-bg-opacity: 1;
+        background-color: rgb(249 250 251 / var(--tw-bg-opacity, 1));
+      }
+      .hover\:bg-white\/20:hover {
+        background-color: rgb(255 255 255 / 0.2);
+      }
+      .hover\:text-\[\#DD6B20\]:hover {
+        --tw-text-opacity: 1;
+        color: rgb(221 107 32 / var(--tw-text-opacity, 1));
+      }
+      .hover\:text-white:hover {
+        --tw-text-opacity: 1;
+        color: rgb(255 255 255 / var(--tw-text-opacity, 1));
+      }
+      .hover\:text-\[\#1A365D\]:hover {
+        --tw-text-opacity: 1;
+        color: rgb(26 54 93 / var(--tw-text-opacity, 1));
+      }
+      .hover\:shadow-md:hover {
+        --tw-shadow:
+          0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+        --tw-shadow-colored:
+          0 4px 6px -1px var(--tw-shadow-color),
+          0 2px 4px -2px var(--tw-shadow-color);
+        box-shadow:
+          var(--tw-ring-offset-shadow, 0 0 #0000),
+          var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+      }
+      .hover\:shadow-xl:hover {
+        --tw-shadow:
+          0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+        --tw-shadow-colored:
+          0 20px 25px -5px var(--tw-shadow-color),
+          0 8px 10px -6px var(--tw-shadow-color);
+        box-shadow:
+          var(--tw-ring-offset-shadow, 0 0 #0000),
+          var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+      }
+      .focus\:border-transparent:focus {
+        border-color: transparent;
+      }
+      .focus\:outline-none:focus {
+        outline: 2px solid transparent;
+        outline-offset: 2px;
+      }
+      .focus\:ring-2:focus {
+        --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0
+          var(--tw-ring-offset-width) var(--tw-ring-offset-color);
+        --tw-ring-shadow: var(--tw-ring-inset) 0 0 0
+          calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color);
+        box-shadow:
+          var(--tw-ring-offset-shadow), var(--tw-ring-shadow),
+          var(--tw-shadow, 0 0 #0000);
+      }
+      .focus\:ring-\[\#1A365D\]:focus {
+        --tw-ring-opacity: 1;
+        --tw-ring-color: rgb(26 54 93 / var(--tw-ring-opacity, 1));
+      }
+      .disabled\:cursor-not-allowed:disabled {
+        cursor: not-allowed;
+      }
+      .disabled\:opacity-70:disabled {
+        opacity: 0.7;
+      }
+      .group:hover .group-hover\:translate-x-1 {
+        --tw-translate-x: 0.25rem;
+        transform: translate(var(--tw-translate-x), var(--tw-translate-y))
+          rotate(var(--tw-rotate)) skewX(var(--tw-skew-x))
+          skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x))
+          scaleY(var(--tw-scale-y));
+      }
+      .group:hover .group-hover\:scale-105 {
+        --tw-scale-x: 1.05;
+        --tw-scale-y: 1.05;
+        transform: translate(var(--tw-translate-x), var(--tw-translate-y))
+          rotate(var(--tw-rotate)) skewX(var(--tw-skew-x))
+          skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x))
+          scaleY(var(--tw-scale-y));
+      }
+      .group:hover .group-hover\:text-\[\#1A365D\] {
+        --tw-text-opacity: 1;
+        color: rgb(26 54 93 / var(--tw-text-opacity, 1));
+      }
+      .group:hover .group-hover\:text-\[\#DD6B20\] {
+        --tw-text-opacity: 1;
+        color: rgb(221 107 32 / var(--tw-text-opacity, 1));
+      }
+      @media (min-width: 640px) {
+        .sm\:flex-row {
+          flex-direction: row;
+        }
+      }
+      @media (min-width: 768px) {
+        .md\:col-span-2 {
+          grid-column: span 2 / span 2;
+        }
+        .md\:mt-0 {
+          margin-top: 0px;
+        }
+        .md\:block {
+          display: block;
+        }
+        .md\:flex {
+          display: flex;
+        }
+        .md\:hidden {
+          display: none;
+        }
+        .md\:w-1\/3 {
+          width: 33.333333%;
+        }
+        .md\:w-2\/3 {
+          width: 66.666667%;
+        }
+        .md\:-translate-y-4 {
+          --tw-translate-y: -1rem;
+          transform: translate(var(--tw-translate-x), var(--tw-translate-y))
+            rotate(var(--tw-rotate)) skewX(var(--tw-skew-x))
+            skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x))
+            scaleY(var(--tw-scale-y));
+        }
+        .md\:grid-cols-2 {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+        .md\:grid-cols-3 {
+          grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
+        .md\:grid-cols-4 {
+          grid-template-columns: repeat(4, minmax(0, 1fr));
+        }
+        .md\:flex-row {
+          flex-direction: row;
+        }
+        .md\:p-12 {
+          padding: 3rem;
+        }
+        .md\:px-6 {
+          padding-left: 1.5rem;
+          padding-right: 1.5rem;
+        }
+        .md\:text-2xl {
+          font-size: 1.5rem;
+          line-height: 2rem;
+        }
+        .md\:text-3xl {
+          font-size: 1.875rem;
+          line-height: 2.25rem;
+        }
+        .md\:text-4xl {
+          font-size: 2.25rem;
+          line-height: 2.5rem;
+        }
+        .md\:text-5xl {
+          font-size: 3rem;
+          line-height: 1;
+        }
+      }
+      @media (min-width: 1024px) {
+        .lg\:col-span-2 {
+          grid-column: span 2 / span 2;
+        }
+        .lg\:col-span-3 {
+          grid-column: span 3 / span 3;
+        }
+        .lg\:flex {
+          display: flex;
+        }
+        .lg\:hidden {
+          display: none;
+        }
+        .lg\:grid-cols-3 {
+          grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
+        .lg\:grid-cols-5 {
+          grid-template-columns: repeat(5, minmax(0, 1fr));
+        }
+        .lg\:px-8 {
+          padding-left: 2rem;
+          padding-right: 2rem;
+        }
+        .lg\:pb-32 {
+          padding-bottom: 8rem;
+        }
+        .lg\:pt-40 {
+          padding-top: 10rem;
+        }
+        .lg\:text-6xl {
+          font-size: 3.75rem;
+          line-height: 1;
+        }
+      }
+    </style>
+    <style data-selector-mode-styles="true">
+      .selector-hover {
+        outline: 2px solid rgba(59, 130, 246, 0.5) !important;
+        outline-offset: -2px !important;
+        cursor: pointer !important;
+      }
+      .selector-selected {
+        outline: 2px solid #ff7500 !important;
+        outline-offset: -2px !important;
+        box-shadow: inset 0 0 0 1000px rgba(255, 117, 0, 0.25) !important;
+      }
+      img.selector-hover {
+        filter: brightness(0.95) !important;
+      }
+      img.selector-selected {
+        filter: brightness(0.8) sepia(0.4) hue-rotate(-10deg) !important;
+      }
+      /* 画像オーバーレイ用スタイル */
+      .img-overlay-border {
+        pointer-events: none;
+        z-index: 9998;
+      }
+      .img-overlay-border.hover-blue {
+        border: 2px solid rgba(59, 130, 246, 0.7);
+        background: rgba(59, 130, 246, 0.1);
+      }
+      .img-overlay-border.selected-orange {
+        border: 2px solid #ff7500;
+        background: rgba(255, 117, 0, 0.15);
+      }
+    </style>
+    <style data-css-edit-mode-styles="true">
+      .css-edit-hover {
+        outline: 2px dashed #3b82f6 !important;
+        outline-offset: -2px !important;
+        cursor: pointer !important;
+      }
+      .css-edit-selected {
+        outline: 3px solid #3b82f6 !important;
+        outline-offset: -3px !important;
+        box-shadow: inset 0 0 0 1000px rgba(59, 130, 246, 0.25) !important;
+      }
+      img.css-edit-hover {
+        filter: brightness(0.95) !important;
+      }
+      img.css-edit-selected {
+        filter: brightness(0.85) saturate(1.3) !important;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-page="home" title="">
+      <style>
+        @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@400;600;700&display=swap");
+
+        html {
+          overflow-x: hidden;
+          scroll-behavior: smooth;
+          scroll-padding-top: 8rem;
+        }
+
+        body {
+          font-family: "Noto Sans JP", sans-serif;
+          color: #1f2937;
+          background-color: #ffffff;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        .font-serif {
+          font-family: "Noto Serif JP", serif;
+        }
+
+        @keyframes fadeIn {
+          from {
+            opacity: 0;
+          }
+          to {
+            opacity: 1;
+          }
+        }
+
+        @keyframes slideInUp {
+          from {
+            transform: translateY(30px);
+            opacity: 0;
+          }
+          to {
+            transform: translateY(0);
+            opacity: 1;
+          }
+        }
+
+        .animate-fadeIn {
+          animation: fadeIn 0.8s ease-out forwards;
+        }
+
+        .animate-slideInUp {
+          animation: slideInUp 0.8s ease-out forwards;
+        }
+
+        .stagger-1 {
+          animation-delay: 0.1s;
+        }
+        .stagger-2 {
+          animation-delay: 0.2s;
+        }
+        .stagger-3 {
+          animation-delay: 0.3s;
+        }
+        .stagger-4 {
+          animation-delay: 0.4s;
+        }
+
+        .prose img {
+          max-width: 100%;
+          height: auto;
+          border-radius: 0.5rem;
+          margin: 2rem 0;
+        }
+
+        .prose h2 {
+          font-size: 1.75rem;
+          font-weight: 700;
+          margin-top: 2.5rem;
+          margin-bottom: 1.25rem;
+          border-bottom: 2px solid #1a365d;
+          padding-bottom: 0.5rem;
+          font-family: "Noto Serif JP", serif;
+        }
+
+        .prose h3 {
+          font-size: 1.25rem;
+          font-weight: 700;
+          margin-top: 2rem;
+          margin-bottom: 1rem;
+          border-left: 4px solid #2f855a;
+          padding-left: 0.75rem;
+        }
+
+        .prose p {
+          margin-bottom: 1.25rem;
+          line-height: 1.8;
+        }
+
+        .prose ul {
+          list-style-type: disc;
+          padding-left: 1.5rem;
+          margin-bottom: 1.5rem;
+        }
+
+        .prose ol {
+          list-style-type: decimal;
+          padding-left: 1.5rem;
+          margin-bottom: 1.5rem;
+        }
+
+        .prose li {
+          margin-bottom: 0.5rem;
+        }
+
+        .prose a {
+          color: #1a365d;
+          text-decoration: underline;
+        }
+
+        .prose a:hover {
+          color: #dd6b20;
+        }
+
+        .prose blockquote {
+          border-left: 4px solid #e5e7eb;
+          padding-left: 1rem;
+          color: #4b5563;
+          font-style: italic;
+          margin: 1.5rem 0;
+        }
+
+        main section[id] {
+          scroll-margin-top: 8rem;
+        }
+      </style>
+      <div class="min-h-screen flex flex-col">
+        <header
+          class="fixed top-0 w-full z-50 transition-all duration-300 bg-white/95 backdrop-blur-sm py-4"
+          title=""
+        >
+          <div class="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
+            <div class="flex justify-between items-center" title="">
+              <a
+                href="#hero"
+                class="flex flex-col cursor-pointer no-underline text-inherit"
+              >
+                <span
+                  class="text-xs font-bold text-[#1A365D] tracking-widest mb-1"
+                  title=""
+                  >群馬県前橋市の税理士事務所</span
+                ><span
+                  class="text-2xl font-serif font-bold text-[#1A365D]"
+                  title=""
+                  >太田総合税理士事務所</span
+                >
+              </a>
+              <div class="hidden lg:flex items-center space-x-8" title="">
+                <nav class="flex space-x-6" title="" aria-label="主要ナビゲーション">
+                  <a
+                    href="#hero"
+                    class="text-[#1F2937] hover:text-[#DD6B20] font-medium transition-colors"
+                    >ホーム</a
+                  ><a
+                    href="#services"
+                    class="text-[#1F2937] hover:text-[#DD6B20] font-medium transition-colors"
+                    >サービス</a
+                  ><a
+                    href="#testimonials"
+                    class="text-[#1F2937] hover:text-[#DD6B20] font-medium transition-colors"
+                    title=""
+                    >実績・事例</a
+                  ><a
+                    href="#team"
+                    class="text-[#1F2937] hover:text-[#DD6B20] font-medium transition-colors"
+                    >スタッフ</a
+                  ><a
+                    href="#news"
+                    class="text-[#1F2937] hover:text-[#DD6B20] font-medium transition-colors"
+                    >お知らせ</a
+                  >
+                </nav>
+                <div class="flex items-center space-x-4" title="">
+                  <div class="flex flex-col items-end">
+                    <span class="text-xs text-[#4B5563]">平日 9:00〜18:00</span
+                    ><a
+                      href="tel:027-000-0000"
+                      class="flex items-center text-[#1A365D] font-bold text-lg hover:text-[#DD6B20] transition-colors"
+                      ><svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        class="lucide lucide-phone w-5 h-5 mr-1"
+                        aria-hidden="true"
+                      >
+                        <path
+                          d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384"
+                        ></path></svg
+                      >027-000-0000</a
+                    >
+                  </div>
+                  <a
+                    href="#contact"
+                    class="bg-[#DD6B20] hover:bg-[#C05621] text-white px-6 py-3 rounded-md font-bold transition-colors shadow-md flex items-center no-underline"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="lucide lucide-mail w-4 h-4 mr-2"
+                      aria-hidden="true"
+                    >
+                      <path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7"></path>
+                      <rect
+                        x="2"
+                        y="4"
+                        width="20"
+                        height="16"
+                        rx="2"
+                      ></rect></svg
+                    >無料相談
+                  </a>
+                </div>
+              </div>
+              <button class="lg:hidden text-[#1A365D]" aria-label="メニュー">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="lucide lucide-menu w-8 h-8"
+                  aria-hidden="true"
+                >
+                  <path d="M4 12h16"></path>
+                  <path d="M4 18h16"></path>
+                  <path d="M4 6h16"></path>
+                </svg>
+              </button>
+            </div>
+          </div>
+        </header>
+        <main class="flex-grow">
+          <section
+            id="hero"
+            class="w-full relative pt-28 pb-20 lg:pt-40 lg:pb-32 overflow-hidden bg-[#1A365D]"
+          >
+            <div class="absolute inset-0 z-0 opacity-30">
+              <img
+                src="https://img.dekirukun.ai/generated-images/sites/05db7f52-d6da-4514-9a80-82672d46a343/hero_20260322_184022_1d3b2beb.jpg"
+                alt="群馬県のビジネス風景"
+                class="w-full h-full object-cover"
+              />
+              <div
+                class="absolute inset-0 bg-gradient-to-r from-[#1A365D] to-transparent"
+                title=""
+              ></div>
+            </div>
+            <div class="max-w-7xl mx-auto px-4 md:px-6 lg:px-8 relative z-10">
+              <div class="max-w-3xl animate-slideInUp" title="">
+                <div
+                  class="inline-block bg-[#2F855A] text-white px-4 py-1.5 rounded-full text-sm font-bold mb-6 tracking-wider"
+                  title=""
+                >
+                  群馬県全域・栃木北部対応
+                </div>
+                <h1
+                  class="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-white leading-tight mb-6"
+                  title=""
+                >
+                  群馬の中小企業経営者を、<br
+                    class="hidden md:block"
+                  />32年間支えてきた。
+                </h1>
+                <p
+                  class="text-xl md:text-2xl text-gray-200 mb-10 font-medium"
+                  title=""
+                >
+                  製造業・建設業・農業法人に特化した<br
+                    class="md:hidden"
+                  />税務・経営支援
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 mb-12">
+                  <button
+                    class="bg-[#DD6B20] hover:bg-[#C05621] text-white px-8 py-4 rounded-md font-bold text-lg transition-all shadow-lg flex items-center justify-center group"
+                  >
+                    無料相談を予約する（初回60分）<svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="lucide lucide-arrow-right w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform"
+                      aria-hidden="true"
+                    >
+                      <path d="M5 12h14"></path>
+                      <path d="m12 5 7 7-7 7"></path>
+                    </svg></button
+                  ><button
+                    class="bg-white/10 hover:bg-white/20 text-white border border-white/30 px-8 py-4 rounded-md font-bold text-lg transition-all flex items-center justify-center"
+                    title=""
+                  >
+                    サービスを見る
+                  </button>
+                </div>
+                <div
+                  class="grid grid-cols-3 gap-4 border-t border-white/20 pt-8"
+                  title=""
+                >
+                  <div>
+                    <p class="text-gray-300 text-sm mb-1">実績</p>
+                    <p
+                      class="text-white font-bold text-2xl md:text-3xl font-serif"
+                    >
+                      240<span class="text-lg font-sans font-normal ml-1"
+                        >社以上</span
+                      >
+                    </p>
+                  </div>
+                  <div title="">
+                    <p class="text-gray-300 text-sm mb-1">創業</p>
+                    <p
+                      class="text-white font-bold text-2xl md:text-3xl font-serif"
+                      title=""
+                    >
+                      1992<span class="text-lg font-sans font-normal ml-1"
+                        >年</span
+                      >
+                    </p>
+                  </div>
+                  <div>
+                    <p class="text-gray-300 text-sm mb-1">体制</p>
+                    <p
+                      class="text-white font-bold text-2xl md:text-3xl font-serif"
+                    >
+                      20<span class="text-lg font-sans font-normal ml-1"
+                        >名</span
+                      >
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+          <section id="problem" class="w-full py-20 bg-[#F9FAFB]" title="">
+            <div class="max-w-7xl mx-auto px-4 md:px-6 lg:px-8" title="">
+              <div class="text-center mb-12">
+                <h2
+                  class="text-3xl md:text-4xl font-serif font-bold text-[#1A365D] mb-4"
+                  title=""
+                >
+                  こんなお悩みありませんか？
+                </h2>
+                <div class="w-16 h-1 bg-[#DD6B20] mx-auto"></div>
+              </div>
+              <div
+                class="max-w-4xl mx-auto bg-white rounded-xl shadow-lg p-8 md:p-12 border-t-4 border-[#1A365D]"
+                title=""
+              >
+                <div class="grid md:grid-cols-2 gap-6">
+                  <div
+                    class="flex items-start space-x-4 p-4 bg-gray-50 rounded-lg"
+                    title=""
+                  >
+                    <div
+                      class="bg-[#2F855A]/10 p-2 rounded-full flex-shrink-0 mt-1"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        class="lucide lucide-check w-6 h-6 text-[#2F855A]"
+                        aria-hidden="true"
+                      >
+                        <path d="M20 6 9 17l-5-5"></path>
+                      </svg>
+                    </div>
+                    <p
+                      class="text-[#1F2937] font-medium text-lg leading-relaxed"
+                    >
+                      決算・申告に追われて本業に集中できない
+                    </p>
+                  </div>
+                  <div
+                    class="flex items-start space-x-4 p-4 bg-gray-50 rounded-lg"
+                  >
+                    <div
+                      class="bg-[#2F855A]/10 p-2 rounded-full flex-shrink-0 mt-1"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        class="lucide lucide-check w-6 h-6 text-[#2F855A]"
+                        aria-hidden="true"
+                      >
+                        <path d="M20 6 9 17l-5-5"></path>
+                      </svg>
+                    </div>
+                    <p
+                      class="text-[#1F2937] font-medium text-lg leading-relaxed"
+                    >
+                      補助金・融資の申請が複雑でわからない
+                    </p>
+                  </div>
+                  <div
+                    class="flex items-start space-x-4 p-4 bg-gray-50 rounded-lg"
+                  >
+                    <div
+                      class="bg-[#2F855A]/10 p-2 rounded-full flex-shrink-0 mt-1"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        class="lucide lucide-check w-6 h-6 text-[#2F855A]"
+                        aria-hidden="true"
+                      >
+                        <path d="M20 6 9 17l-5-5"></path>
+                      </svg>
+                    </div>
+                    <p
+                      class="text-[#1F2937] font-medium text-lg leading-relaxed"
+                    >
+                      事業承継・相続をそろそろ考えたい
+                    </p>
+                  </div>
+                  <div
+                    class="flex items-start space-x-4 p-4 bg-gray-50 rounded-lg"
+                  >
+                    <div
+                      class="bg-[#2F855A]/10 p-2 rounded-full flex-shrink-0 mt-1"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        class="lucide lucide-check w-6 h-6 text-[#2F855A]"
+                        aria-hidden="true"
+                      >
+                        <path d="M20 6 9 17l-5-5"></path>
+                      </svg>
+                    </div>
+                    <p
+                      class="text-[#1F2937] font-medium text-lg leading-relaxed"
+                    >
+                      先代から頼んでいた税理士が高齢で引退した
+                    </p>
+                  </div>
+                </div>
+                <div class="mt-10 text-center">
+                  <p class="text-xl font-bold text-[#1A365D]">
+                    そのお悩み、<br
+                      class="md:hidden"
+                    />太田総合税理士事務所が解決します。
+                  </p>
+                </div>
+              </div>
+            </div>
+          </section>
+          <section id="services" class="w-full py-20 bg-white">
+            <div class="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
+              <div class="text-center mb-16">
+                <span class="text-[#DD6B20] font-bold tracking-wider text-sm"
+                  >SERVICES</span
+                >
+                <h2
+                  class="text-3xl md:text-4xl font-serif font-bold text-[#1A365D] mt-2 mb-4"
+                >
+                  地域の中小企業に必要なサービスを<br
+                    class="md:hidden"
+                  />ワンストップで
+                </h2>
+                <div class="w-16 h-1 bg-[#DD6B20] mx-auto mb-6"></div>
+                <p class="text-[#4B5563] max-w-2xl mx-auto">
+                  税務申告だけでなく、経営のパートナーとして企業の成長を多角的にサポートします。
+                </p>
+              </div>
+              <div
+                class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20"
+                title=""
+              >
+                <div
+                  class="bg-[#F9FAFB] p-8 rounded-xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow"
+                >
+                  <div
+                    class="bg-white w-16 h-16 rounded-full flex items-center justify-center shadow-sm mb-6"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="lucide lucide-calculator w-8 h-8 text-[#1A365D]"
+                      aria-hidden="true"
+                    >
+                      <rect width="16" height="20" x="4" y="2" rx="2"></rect>
+                      <line x1="8" x2="16" y1="6" y2="6"></line>
+                      <line x1="16" x2="16" y1="14" y2="18"></line>
+                      <path d="M16 10h.01"></path>
+                      <path d="M12 10h.01"></path>
+                      <path d="M8 10h.01"></path>
+                      <path d="M12 14h.01"></path>
+                      <path d="M8 14h.01"></path>
+                      <path d="M12 18h.01"></path>
+                      <path d="M8 18h.01"></path>
+                    </svg>
+                  </div>
+                  <h3 class="text-xl font-bold text-[#1F2937] mb-3">
+                    税務顧問・月次巡回
+                  </h3>
+                  <p class="text-[#4B5563] leading-relaxed">
+                    月1〜2回の定期訪問で、経営状態をリアルタイムに把握。迅速な経営判断をサポートします。
+                  </p>
+                </div>
+                <div
+                  class="bg-[#F9FAFB] p-8 rounded-xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow"
+                >
+                  <div
+                    class="bg-white w-16 h-16 rounded-full flex items-center justify-center shadow-sm mb-6"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="lucide lucide-file-text w-8 h-8 text-[#1A365D]"
+                      aria-hidden="true"
+                    >
+                      <path
+                        d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"
+                      ></path>
+                      <path d="M14 2v4a2 2 0 0 0 2 2h4"></path>
+                      <path d="M10 9H8"></path>
+                      <path d="M16 13H8"></path>
+                      <path d="M16 17H8"></path>
+                    </svg>
+                  </div>
+                  <h3 class="text-xl font-bold text-[#1F2937] mb-3">
+                    記帳代行・給与計算
+                  </h3>
+                  <p class="text-[#4B5563] leading-relaxed">
+                    煩雑な経理業務を丸ごと代行。経営者様が本業に専念できる環境を整えます。
+                  </p>
+                </div>
+                <div
+                  class="bg-[#F9FAFB] p-8 rounded-xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow"
+                >
+                  <div
+                    class="bg-white w-16 h-16 rounded-full flex items-center justify-center shadow-sm mb-6"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="lucide lucide-users w-8 h-8 text-[#1A365D]"
+                      aria-hidden="true"
+                    >
+                      <path
+                        d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"
+                      ></path>
+                      <path d="M16 3.128a4 4 0 0 1 0 7.744"></path>
+                      <path d="M22 21v-2a4 4 0 0 0-3-3.87"></path>
+                      <circle cx="9" cy="7" r="4"></circle>
+                    </svg>
+                  </div>
+                  <h3 class="text-xl font-bold text-[#1F2937] mb-3">
+                    相続・事業承継
+                  </h3>
+                  <p class="text-[#4B5563] leading-relaxed">
+                    次世代への円滑なバトンタッチを支援。自社株評価から承継計画の策定までトータルサポート。
+                  </p>
+                </div>
+                <div
+                  class="bg-[#F9FAFB] p-8 rounded-xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow"
+                >
+                  <div
+                    class="bg-white w-16 h-16 rounded-full flex items-center justify-center shadow-sm mb-6"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="lucide lucide-piggy-bank w-8 h-8 text-[#1A365D]"
+                      aria-hidden="true"
+                    >
+                      <path
+                        d="M11 17h3v2a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1v-3a3.16 3.16 0 0 0 2-2h1a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1h-1a5 5 0 0 0-2-4V3a4 4 0 0 0-3.2 1.6l-.3.4H11a6 6 0 0 0-6 6v1a5 5 0 0 0 2 4v3a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1z"
+                      ></path>
+                      <path d="M16 10h.01"></path>
+                      <path d="M2 8v1a2 2 0 0 0 2 2h1"></path>
+                    </svg>
+                  </div>
+                  <h3 class="text-xl font-bold text-[#1F2937] mb-3">
+                    節税プランニング
+                  </h3>
+                  <p class="text-[#4B5563] leading-relaxed">
+                    合法かつ効果的な節税対策をご提案。会社のキャッシュフローを最大化します。
+                  </p>
+                </div>
+                <div
+                  class="bg-[#F9FAFB] p-8 rounded-xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow"
+                >
+                  <div
+                    class="bg-white w-16 h-16 rounded-full flex items-center justify-center shadow-sm mb-6"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="lucide lucide-landmark w-8 h-8 text-[#1A365D]"
+                      aria-hidden="true"
+                    >
+                      <path d="M10 18v-7"></path>
+                      <path
+                        d="M11.12 2.198a2 2 0 0 1 1.76.006l7.866 3.847c.476.233.31.949-.22.949H3.474c-.53 0-.695-.716-.22-.949z"
+                      ></path>
+                      <path d="M14 18v-7"></path>
+                      <path d="M18 18v-7"></path>
+                      <path d="M3 22h18"></path>
+                      <path d="M6 18v-7"></path>
+                    </svg>
+                  </div>
+                  <h3 class="text-xl font-bold text-[#1F2937] mb-3">
+                    補助金・融資サポート
+                  </h3>
+                  <p class="text-[#4B5563] leading-relaxed">
+                    ものづくり補助金など、各種補助金の申請から金融機関との融資交渉まで強力にバックアップ。
+                  </p>
+                </div>
+                <div
+                  class="bg-[#F9FAFB] p-8 rounded-xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow"
+                >
+                  <div
+                    class="bg-white w-16 h-16 rounded-full flex items-center justify-center shadow-sm mb-6"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="lucide lucide-briefcase w-8 h-8 text-[#1A365D]"
+                      aria-hidden="true"
+                    >
+                      <path
+                        d="M16 20V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"
+                      ></path>
+                      <rect width="20" height="14" x="2" y="6" rx="2"></rect>
+                    </svg>
+                  </div>
+                  <h3 class="text-xl font-bold text-[#1F2937] mb-3">
+                    クラウド会計導入支援
+                  </h3>
+                  <p class="text-[#4B5563] leading-relaxed">
+                    MFクラウドやfreeeの導入・運用をサポート。経理業務のDX化と効率化を実現します。
+                  </p>
+                </div>
+              </div>
+              <div
+                class="bg-[#1A365D] rounded-2xl p-8 md:p-12 text-white relative overflow-hidden"
+              >
+                <div
+                  class="absolute top-0 right-0 w-64 h-64 bg-white opacity-5 rounded-full -translate-y-1/2 translate-x-1/3"
+                ></div>
+                <div class="text-center mb-10 relative z-10">
+                  <h3 class="text-2xl md:text-3xl font-serif font-bold mb-4">
+                    特定業種に強い専門チーム
+                  </h3>
+                  <p class="text-gray-300">
+                    業界特有の商習慣や税制を熟知したスタッフが対応します
+                  </p>
+                </div>
+                <div class="grid md:grid-cols-3 gap-6 relative z-10">
+                  <div
+                    class="bg-white/10 backdrop-blur-sm border border-white/20 p-6 rounded-xl text-center"
+                  >
+                    <div
+                      class="bg-[#2F855A] w-20 h-20 mx-auto rounded-full flex items-center justify-center mb-4 shadow-lg"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        class="lucide lucide-factory w-10 h-10 text-white"
+                        aria-hidden="true"
+                      >
+                        <path d="M12 16h.01"></path>
+                        <path d="M16 16h.01"></path>
+                        <path
+                          d="M3 19a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V8.5a.5.5 0 0 0-.769-.422l-4.462 2.844A.5.5 0 0 1 15 10.5v-2a.5.5 0 0 0-.769-.422L9.77 10.922A.5.5 0 0 1 9 10.5V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2z"
+                        ></path>
+                        <path d="M8 16h.01"></path>
+                      </svg>
+                    </div>
+                    <h4 class="text-xl font-bold mb-2">製造業</h4>
+                    <p class="text-sm text-gray-300">
+                      原価計算、設備投資の税制優遇、ものづくり補助金対応
+                    </p>
+                  </div>
+                  <div
+                    class="bg-white/10 backdrop-blur-sm border border-white/20 p-6 rounded-xl text-center"
+                  >
+                    <div
+                      class="bg-[#2F855A] w-20 h-20 mx-auto rounded-full flex items-center justify-center mb-4 shadow-lg"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        class="lucide lucide-building2 lucide-building-2 w-10 h-10 text-white"
+                        aria-hidden="true"
+                      >
+                        <path
+                          d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"
+                        ></path>
+                        <path
+                          d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"
+                        ></path>
+                        <path
+                          d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2"
+                        ></path>
+                        <path d="M10 6h4"></path>
+                        <path d="M10 10h4"></path>
+                        <path d="M10 14h4"></path>
+                        <path d="M10 18h4"></path>
+                      </svg>
+                    </div>
+                    <h4 class="text-xl font-bold mb-2">建設業</h4>
+                    <p class="text-sm text-gray-300">
+                      工事進行基準、経営事項審査対策、資金繰り支援
+                    </p>
+                  </div>
+                  <div
+                    class="bg-white/10 backdrop-blur-sm border border-white/20 p-6 rounded-xl text-center"
+                  >
+                    <div
+                      class="bg-[#2F855A] w-20 h-20 mx-auto rounded-full flex items-center justify-center mb-4 shadow-lg"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        class="lucide lucide-tractor w-10 h-10 text-white"
+                        aria-hidden="true"
+                      >
+                        <path
+                          d="m10 11 11 .9a1 1 0 0 1 .8 1.1l-.665 4.158a1 1 0 0 1-.988.842H20"
+                        ></path>
+                        <path d="M16 18h-5"></path>
+                        <path d="M18 5a1 1 0 0 0-1 1v5.573"></path>
+                        <path d="M3 4h8.129a1 1 0 0 1 .99.863L13 11.246"></path>
+                        <path d="M4 11V4"></path>
+                        <path d="M7 15h.01"></path>
+                        <path d="M8 10.1V4"></path>
+                        <circle cx="18" cy="18" r="2"></circle>
+                        <circle cx="7" cy="15" r="5"></circle>
+                      </svg>
+                    </div>
+                    <h4 class="text-xl font-bold mb-2">農業法人</h4>
+                    <p class="text-sm text-gray-300">
+                      農業特有の税制、農地法対応、法人化シミュレーション
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+          <section id="pricing" class="w-full py-20 bg-[#F9FAFB]" title="">
+            <div class="max-w-7xl mx-auto px-4 md:px-6 lg:px-8" title="">
+              <div class="text-center mb-16">
+                <span class="text-[#DD6B20] font-bold tracking-wider text-sm"
+                  >PRICING</span
+                >
+                <h2
+                  class="text-3xl md:text-4xl font-serif font-bold text-[#1A365D] mt-2 mb-4"
+                >
+                  事業規模に合わせた明瞭な料金プラン
+                </h2>
+                <div class="w-16 h-1 bg-[#DD6B20] mx-auto mb-6"></div>
+                <p class="text-[#4B5563]">
+                  企業の成長フェーズに合わせた最適なサポートを提供します。<br
+                    class="hidden md:block"
+                  />※表示価格は月額顧問料（税抜）の目安です。詳細はお見積りいたします。
+                </p>
+              </div>
+              <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto" title="">
+                <div
+                  class="bg-white rounded-2xl shadow-lg overflow-hidden flex flex-col relative border border-gray-200"
+                >
+                  <div class="p-8 border-b border-gray-100 flex-grow">
+                    <h3
+                      class="text-2xl font-bold text-[#1A365D] mb-2 text-center"
+                    >
+                      スタートプラン
+                    </h3>
+                    <p class="text-center text-[#4B5563] text-sm mb-6">
+                      年商3,000万円以下の企業様向け
+                    </p>
+                    <div class="text-center mb-8">
+                      <span class="text-4xl font-bold text-[#1F2937]"
+                        >¥30,000</span
+                      ><span class="text-[#4B5563]"> / 月〜</span>
+                    </div>
+                    <ul class="space-y-4">
+                      <li class="flex items-start">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="24"
+                          height="24"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          class="lucide lucide-check w-5 h-5 text-[#2F855A] mr-3 flex-shrink-0 mt-0.5"
+                          aria-hidden="true"
+                        >
+                          <path d="M20 6 9 17l-5-5"></path></svg
+                        ><span class="text-[#4B5563] text-sm leading-relaxed"
+                          >月次試算表の作成</span
+                        >
+                      </li>
+                      <li class="flex items-start">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="24"
+                          height="24"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          class="lucide lucide-check w-5 h-5 text-[#2F855A] mr-3 flex-shrink-0 mt-0.5"
+                          aria-hidden="true"
+                        >
+                          <path d="M20 6 9 17l-5-5"></path></svg
+                        ><span class="text-[#4B5563] text-sm leading-relaxed"
+                          >年1回の決算・申告</span
+                        >
+                      </li>
+                      <li class="flex items-start">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="24"
+                          height="24"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          class="lucide lucide-check w-5 h-5 text-[#2F855A] mr-3 flex-shrink-0 mt-0.5"
+                          aria-hidden="true"
+                        >
+                          <path d="M20 6 9 17l-5-5"></path></svg
+                        ><span class="text-[#4B5563] text-sm leading-relaxed"
+                          >電話・メール相談（無制限）</span
+                        >
+                      </li>
+                      <li class="flex items-start">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="24"
+                          height="24"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          class="lucide lucide-check w-5 h-5 text-[#2F855A] mr-3 flex-shrink-0 mt-0.5"
+                          aria-hidden="true"
+                        >
+                          <path d="M20 6 9 17l-5-5"></path></svg
+                        ><span class="text-[#4B5563] text-sm leading-relaxed"
+                          >役員報酬シミュレーション</span
+                        >
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="p-8 bg-gray-50 mt-auto">
+                    <button
+                      class="w-full py-3 rounded-md font-bold transition-colors bg-white border border-[#1A365D] text-[#1A365D] hover:bg-gray-50"
+                    >
+                      まずは相談する
+                    </button>
+                  </div>
+                </div>
+                <div
+                  class="bg-white rounded-2xl shadow-lg overflow-hidden flex flex-col relative border-2 border-[#DD6B20] transform md:-translate-y-4"
+                >
+                  <div
+                    class="bg-[#DD6B20] text-white text-center py-2 text-sm font-bold tracking-wider"
+                  >
+                    一番人気
+                  </div>
+                  <div class="p-8 border-b border-gray-100 flex-grow" title="">
+                    <h3
+                      class="text-2xl font-bold text-[#1A365D] mb-2 text-center"
+                    >
+                      スタンダードプラン
+                    </h3>
+                    <p class="text-center text-[#4B5563] text-sm mb-6">
+                      年商1億円以下の企業様向け
+                    </p>
+                    <div class="text-center mb-8">
+                      <span class="text-4xl font-bold text-[#1F2937]"
+                        >¥50,000</span
+                      ><span class="text-[#4B5563]"> / 月〜</span>
+                    </div>
+                    <ul class="space-y-4" title="">
+                      <li class="flex items-start" title="">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="24"
+                          height="24"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          class="lucide lucide-check w-5 h-5 text-[#2F855A] mr-3 flex-shrink-0 mt-0.5"
+                          aria-hidden="true"
+                        >
+                          <path d="M20 6 9 17l-5-5"></path></svg
+                        ><span
+                          class="text-[#4B5563] text-sm leading-relaxed"
+                          title=""
+                          >月次巡回監査（毎月）</span
+                        >
+                      </li>
+                      <li class="flex items-start" title="">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="24"
+                          height="24"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          class="lucide lucide-check w-5 h-5 text-[#2F855A] mr-3 flex-shrink-0 mt-0.5"
+                          aria-hidden="true"
+                        >
+                          <path d="M20 6 9 17l-5-5"></path></svg
+                        ><span class="text-[#4B5563] text-sm leading-relaxed"
+                          >月次決算書の作成</span
+                        >
+                      </li>
+                      <li class="flex items-start">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="24"
+                          height="24"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          class="lucide lucide-check w-5 h-5 text-[#2F855A] mr-3 flex-shrink-0 mt-0.5"
+                          aria-hidden="true"
+                        >
+                          <path d="M20 6 9 17l-5-5"></path></svg
+                        ><span class="text-[#4B5563] text-sm leading-relaxed"
+                          >決算事前対策（年2回）</span
+                        >
+                      </li>
+                      <li class="flex items-start">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="24"
+                          height="24"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          class="lucide lucide-check w-5 h-5 text-[#2F855A] mr-3 flex-shrink-0 mt-0.5"
+                          aria-hidden="true"
+                        >
+                          <path d="M20 6 9 17l-5-5"></path></svg
+                        ><span class="text-[#4B5563] text-sm leading-relaxed"
+                          >資金繰り表の作成支援</span
+                        >
+                      </li>
+                      <li class="flex items-start">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="24"
+                          height="24"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          class="lucide lucide-check w-5 h-5 text-[#2F855A] mr-3 flex-shrink-0 mt-0.5"
+                          aria-hidden="true"
+                        >
+                          <path d="M20 6 9 17l-5-5"></path></svg
+                        ><span class="text-[#4B5563] text-sm leading-relaxed"
+                          >税務調査立ち会い</span
+                        >
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="p-8 bg-gray-50 mt-auto">
+                    <button
+                      class="w-full py-3 rounded-md font-bold transition-colors bg-[#DD6B20] hover:bg-[#C05621] text-white shadow-md"
+                    >
+                      まずは相談する
+                    </button>
+                  </div>
+                </div>
+                <div
+                  class="bg-white rounded-2xl shadow-lg overflow-hidden flex flex-col relative border border-gray-200"
+                >
+                  <div class="p-8 border-b border-gray-100 flex-grow" title="">
+                    <h3
+                      class="text-2xl font-bold text-[#1A365D] mb-2 text-center"
+                    >
+                      プレミアムプラン
+                    </h3>
+                    <p class="text-center text-[#4B5563] text-sm mb-6">
+                      年商1億円以上の企業様向け
+                    </p>
+                    <div class="text-center mb-8">
+                      <span class="text-4xl font-bold text-[#1F2937]"
+                        >¥100,000</span
+                      ><span class="text-[#4B5563]"> / 月〜</span>
+                    </div>
+                    <ul class="space-y-4">
+                      <li class="flex items-start">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="24"
+                          height="24"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          class="lucide lucide-check w-5 h-5 text-[#2F855A] mr-3 flex-shrink-0 mt-0.5"
+                          aria-hidden="true"
+                        >
+                          <path d="M20 6 9 17l-5-5"></path></svg
+                        ><span class="text-[#4B5563] text-sm leading-relaxed"
+                          >月次巡回監査（毎月）</span
+                        >
+                      </li>
+                      <li class="flex items-start" title="">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="24"
+                          height="24"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          class="lucide lucide-check w-5 h-5 text-[#2F855A] mr-3 flex-shrink-0 mt-0.5"
+                          aria-hidden="true"
+                        >
+                          <path d="M20 6 9 17l-5-5"></path></svg
+                        ><span
+                          class="text-[#4B5563] text-sm leading-relaxed"
+                          title=""
+                          >経営計画の策定支援</span
+                        >
+                      </li>
+                      <li class="flex items-start">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="24"
+                          height="24"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          class="lucide lucide-check w-5 h-5 text-[#2F855A] mr-3 flex-shrink-0 mt-0.5"
+                          aria-hidden="true"
+                        >
+                          <path d="M20 6 9 17l-5-5"></path></svg
+                        ><span class="text-[#4B5563] text-sm leading-relaxed"
+                          >予実管理ミーティング</span
+                        >
+                      </li>
+                      <li class="flex items-start">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="24"
+                          height="24"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          class="lucide lucide-check w-5 h-5 text-[#2F855A] mr-3 flex-shrink-0 mt-0.5"
+                          aria-hidden="true"
+                        >
+                          <path d="M20 6 9 17l-5-5"></path></svg
+                        ><span class="text-[#4B5563] text-sm leading-relaxed"
+                          >事業承継・M&amp;A相談</span
+                        >
+                      </li>
+                      <li class="flex items-start">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="24"
+                          height="24"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          class="lucide lucide-check w-5 h-5 text-[#2F855A] mr-3 flex-shrink-0 mt-0.5"
+                          aria-hidden="true"
+                        >
+                          <path d="M20 6 9 17l-5-5"></path></svg
+                        ><span class="text-[#4B5563] text-sm leading-relaxed"
+                          >補助金申請サポート（優先）</span
+                        >
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="p-8 bg-gray-50 mt-auto">
+                    <button
+                      class="w-full py-3 rounded-md font-bold transition-colors bg-white border border-[#1A365D] text-[#1A365D] hover:bg-gray-50"
+                    >
+                      まずは相談する
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+          <section id="flow" class="w-full py-20 bg-white">
+            <div class="max-w-5xl mx-auto px-4 md:px-6 lg:px-8">
+              <div class="text-center mb-16">
+                <span class="text-[#DD6B20] font-bold tracking-wider text-sm"
+                  >FLOW</span
+                >
+                <h2
+                  class="text-3xl md:text-4xl font-serif font-bold text-[#1A365D] mt-2 mb-4"
+                >
+                  ご契約までの流れ
+                </h2>
+                <div class="w-16 h-1 bg-[#DD6B20] mx-auto"></div>
+              </div>
+              <div class="relative">
+                <div
+                  class="hidden md:block absolute top-12 left-[10%] right-[10%] h-1 bg-gray-200 z-0"
+                ></div>
+                <div class="grid md:grid-cols-4 gap-8 relative z-10" title="">
+                  <div class="flex flex-col items-center text-center">
+                    <div
+                      class="w-24 h-24 bg-[#1A365D] rounded-full flex items-center justify-center mb-6 shadow-lg relative border-4 border-white"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        class="lucide lucide-phone w-8 h-8 text-white"
+                        aria-hidden="true"
+                      >
+                        <path
+                          d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384"
+                        ></path>
+                      </svg>
+                      <div
+                        class="absolute -top-2 -right-2 bg-[#DD6B20] text-white w-8 h-8 rounded-full flex items-center justify-center font-bold text-sm shadow-sm"
+                      >
+                        01
+                      </div>
+                    </div>
+                    <h3 class="text-lg font-bold text-[#1F2937] mb-3">
+                      無料相談（初回60分）
+                    </h3>
+                    <p class="text-[#4B5563] text-sm leading-relaxed">
+                      まずはお気軽にお問い合わせください。ご来所、またはオンライン（Zoom等）での面談が可能です。
+                    </p>
+                  </div>
+                  <div class="flex flex-col items-center text-center">
+                    <div
+                      class="w-24 h-24 bg-[#1A365D] rounded-full flex items-center justify-center mb-6 shadow-lg relative border-4 border-white"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        class="lucide lucide-users w-8 h-8 text-white"
+                        aria-hidden="true"
+                      >
+                        <path
+                          d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"
+                        ></path>
+                        <path d="M16 3.128a4 4 0 0 1 0 7.744"></path>
+                        <path d="M22 21v-2a4 4 0 0 0-3-3.87"></path>
+                        <circle cx="9" cy="7" r="4"></circle>
+                      </svg>
+                      <div
+                        class="absolute -top-2 -right-2 bg-[#DD6B20] text-white w-8 h-8 rounded-full flex items-center justify-center font-bold text-sm shadow-sm"
+                      >
+                        02
+                      </div>
+                    </div>
+                    <h3 class="text-lg font-bold text-[#1F2937] mb-3">
+                      現状ヒアリング・課題整理
+                    </h3>
+                    <p class="text-[#4B5563] text-sm leading-relaxed">
+                      貴社の事業内容、現在の経理状況、お悩みなどを詳しくお伺いし、解決すべき課題を明確にします。
+                    </p>
+                  </div>
+                  <div class="flex flex-col items-center text-center">
+                    <div
+                      class="w-24 h-24 bg-[#1A365D] rounded-full flex items-center justify-center mb-6 shadow-lg relative border-4 border-white"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        class="lucide lucide-file-text w-8 h-8 text-white"
+                        aria-hidden="true"
+                      >
+                        <path
+                          d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"
+                        ></path>
+                        <path d="M14 2v4a2 2 0 0 0 2 2h4"></path>
+                        <path d="M10 9H8"></path>
+                        <path d="M16 13H8"></path>
+                        <path d="M16 17H8"></path>
+                      </svg>
+                      <div
+                        class="absolute -top-2 -right-2 bg-[#DD6B20] text-white w-8 h-8 rounded-full flex items-center justify-center font-bold text-sm shadow-sm"
+                      >
+                        03
+                      </div>
+                    </div>
+                    <h3 class="text-lg font-bold text-[#1F2937] mb-3">
+                      プラン・費用のご提案
+                    </h3>
+                    <p class="text-[#4B5563] text-sm leading-relaxed">
+                      ヒアリング内容をもとに、貴社に最適なサポート内容と明確な料金お見積りをご提示いたします。
+                    </p>
+                  </div>
+                  <div class="flex flex-col items-center text-center">
+                    <div
+                      class="w-24 h-24 bg-[#1A365D] rounded-full flex items-center justify-center mb-6 shadow-lg relative border-4 border-white"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        class="lucide lucide-briefcase w-8 h-8 text-white"
+                        aria-hidden="true"
+                      >
+                        <path
+                          d="M16 20V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"
+                        ></path>
+                        <rect width="20" height="14" x="2" y="6" rx="2"></rect>
+                      </svg>
+                      <div
+                        class="absolute -top-2 -right-2 bg-[#DD6B20] text-white w-8 h-8 rounded-full flex items-center justify-center font-bold text-sm shadow-sm"
+                      >
+                        04
+                      </div>
+                    </div>
+                    <h3 class="text-lg font-bold text-[#1F2937] mb-3">
+                      ご契約・サポート開始
+                    </h3>
+                    <p class="text-[#4B5563] text-sm leading-relaxed">
+                      ご提案内容にご納得いただけましたら契約となります。専任の担当者がつき、サポートを開始します。
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+          <section
+            id="testimonials"
+            class="w-full py-20 bg-[#1A365D] text-white"
+          >
+            <div class="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
+              <div class="text-center mb-16">
+                <span class="text-[#DD6B20] font-bold tracking-wider text-sm"
+                  >TESTIMONIALS</span
+                >
+                <h2 class="text-3xl md:text-4xl font-serif font-bold mt-2 mb-4">
+                  数字で見る確かな実績と、お客様の声
+                </h2>
+                <div class="w-16 h-1 bg-[#DD6B20] mx-auto mb-6"></div>
+                <p class="text-gray-300">
+                  平均顧問期間11年が語る、長期的な信頼関係
+                </p>
+              </div>
+              <div class="grid md:grid-cols-3 gap-8">
+                <div
+                  class="bg-white text-[#1F2937] rounded-xl overflow-hidden shadow-xl flex flex-col"
+                >
+                  <div
+                    class="bg-[#2F855A] text-white px-4 py-2 text-sm font-bold inline-block self-start rounded-br-lg"
+                  >
+                    製造業
+                  </div>
+                  <div class="p-6 flex-grow flex flex-col">
+                    <h3
+                      class="text-xl font-bold text-[#1A365D] mb-4 leading-tight"
+                    >
+                      設備投資の税制優遇を活用し、年間300万円の節税を実現
+                    </h3>
+                    <div class="space-y-4 flex-grow">
+                      <div>
+                        <p class="text-xs font-bold text-[#DD6B20] mb-1">
+                          【課題】
+                        </p>
+                        <p
+                          class="text-sm text-[#4B5563] bg-gray-50 p-3 rounded"
+                        >
+                          新しい機械を導入したいが、資金繰りと税負担が心配だった。
+                        </p>
+                      </div>
+                      <div>
+                        <p class="text-xs font-bold text-[#2F855A] mb-1">
+                          【提案・解決策】
+                        </p>
+                        <p
+                          class="text-sm text-[#4B5563] bg-gray-50 p-3 rounded"
+                        >
+                          中小企業投資促進税制の適用と、ものづくり補助金の申請をサポート。
+                        </p>
+                      </div>
+                      <div>
+                        <p class="text-xs font-bold text-[#1A365D] mb-1">
+                          【結果】
+                        </p>
+                        <p
+                          class="text-sm text-[#1F2937] font-medium bg-blue-50 p-3 rounded border-l-4 border-[#1A365D]"
+                        >
+                          補助金採択により初期費用を抑え、さらに税額控除で年間300万円の節税に成功。
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="bg-white text-[#1F2937] rounded-xl overflow-hidden shadow-xl flex flex-col"
+                >
+                  <div
+                    class="bg-[#2F855A] text-white px-4 py-2 text-sm font-bold inline-block self-start rounded-br-lg"
+                  >
+                    建設業
+                  </div>
+                  <div class="p-6 flex-grow flex flex-col">
+                    <h3
+                      class="text-xl font-bold text-[#1A365D] mb-4 leading-tight"
+                    >
+                      円滑な事業承継と、経営事項審査の評点アップ
+                    </h3>
+                    <div class="space-y-4 flex-grow">
+                      <div>
+                        <p class="text-xs font-bold text-[#DD6B20] mb-1">
+                          【課題】
+                        </p>
+                        <p
+                          class="text-sm text-[#4B5563] bg-gray-50 p-3 rounded"
+                        >
+                          社長が高齢になり息子への代替わりを考えているが、自社株の評価額が高く贈与税が払えない。
+                        </p>
+                      </div>
+                      <div>
+                        <p
+                          class="text-xs font-bold text-[#2F855A] mb-1"
+                          title=""
+                        >
+                          【提案・解決策】
+                        </p>
+                        <p
+                          class="text-sm text-[#4B5563] bg-gray-50 p-3 rounded"
+                          title=""
+                        >
+                          事業承継税制の特例を活用した計画策定と、経審を見据えた決算対策を実施。
+                        </p>
+                      </div>
+                      <div>
+                        <p class="text-xs font-bold text-[#1A365D] mb-1">
+                          【結果】
+                        </p>
+                        <p
+                          class="text-sm text-[#1F2937] font-medium bg-blue-50 p-3 rounded border-l-4 border-[#1A365D]"
+                        >
+                          税負担ゼロで株式の承継が完了。経審の評点も上がり、公共工事の受注拡大に繋がった。
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="bg-white text-[#1F2937] rounded-xl overflow-hidden shadow-xl flex flex-col"
+                >
+                  <div
+                    class="bg-[#2F855A] text-white px-4 py-2 text-sm font-bold inline-block self-start rounded-br-lg"
+                  >
+                    農業法人
+                  </div>
+                  <div class="p-6 flex-grow flex flex-col">
+                    <h3
+                      class="text-xl font-bold text-[#1A365D] mb-4 leading-tight"
+                    >
+                      個人農家からの法人化で、経営の安定と雇用拡大
+                    </h3>
+                    <div class="space-y-4 flex-grow">
+                      <div>
+                        <p class="text-xs font-bold text-[#DD6B20] mb-1">
+                          【課題】
+                        </p>
+                        <p
+                          class="text-sm text-[#4B5563] bg-gray-50 p-3 rounded"
+                        >
+                          規模拡大に伴い税金が高くなり、従業員の採用も難しくなってきた。
+                        </p>
+                      </div>
+                      <div>
+                        <p class="text-xs font-bold text-[#2F855A] mb-1">
+                          【提案・解決策】
+                        </p>
+                        <p
+                          class="text-sm text-[#4B5563] bg-gray-50 p-3 rounded"
+                        >
+                          法人化のシミュレーションを行い、最適なタイミングでの法人設立を支援。
+                        </p>
+                      </div>
+                      <div>
+                        <p class="text-xs font-bold text-[#1A365D] mb-1">
+                          【結果】
+                        </p>
+                        <p
+                          class="text-sm text-[#1F2937] font-medium bg-blue-50 p-3 rounded border-l-4 border-[#1A365D]"
+                        >
+                          社会保険の完備により若手人材の採用に成功。法人税率の適用で手元資金も増加した。
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+          <section
+            id="cta"
+            class="w-full py-16 bg-[#DD6B20] relative overflow-hidden"
+          >
+            <div class="absolute inset-0 opacity-10">
+              <div
+                class="absolute -top-24 -right-24 w-96 h-96 bg-white rounded-full"
+              ></div>
+              <div
+                class="absolute -bottom-24 -left-24 w-64 h-64 bg-white rounded-full"
+              ></div>
+            </div>
+            <div
+              class="max-w-4xl mx-auto px-4 md:px-6 lg:px-8 text-center relative z-10"
+            >
+              <h2
+                class="text-2xl md:text-4xl font-serif font-bold text-white mb-6"
+              >
+                貴社の課題も、私たちが解決します
+              </h2>
+              <p class="text-white/90 text-lg mb-10 max-w-2xl mx-auto">
+                税務・会計・経営のことでお悩みなら、まずは無料相談をご利用ください。<br
+                  class="hidden md:block"
+                />専門スタッフが親身になってお話を伺います。
+              </p>
+              <div
+                class="flex flex-col sm:flex-row justify-center items-center gap-6"
+              >
+                <a
+                  href="tel:027-000-0000"
+                  class="flex items-center text-white font-bold text-2xl hover:scale-105 transition-transform"
+                  ><div class="bg-white/20 p-3 rounded-full mr-3">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="lucide lucide-phone w-6 h-6"
+                      aria-hidden="true"
+                    >
+                      <path
+                        d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384"
+                      ></path>
+                    </svg>
+                  </div>
+                  027-000-0000</a
+                ><button
+                  class="bg-white text-[#DD6B20] hover:bg-gray-50 px-8 py-4 rounded-md font-bold text-lg transition-colors shadow-lg flex items-center"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="lucide lucide-mail w-5 h-5 mr-2"
+                    aria-hidden="true"
+                  >
+                    <path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7"></path>
+                    <rect x="2" y="4" width="20" height="16" rx="2"></rect></svg
+                  >無料相談を予約する
+                </button>
+              </div>
+            </div>
+          </section>
+          <section id="team" class="w-full py-20 bg-white" title="">
+            <div class="max-w-7xl mx-auto px-4 md:px-6 lg:px-8" title="">
+              <div class="text-center mb-16">
+                <span class="text-[#DD6B20] font-bold tracking-wider text-sm"
+                  >TEAM</span
+                >
+                <h2
+                  class="text-3xl md:text-4xl font-serif font-bold text-[#1A365D] mt-2 mb-4"
+                >
+                  20名体制でサポートする専門スタッフ
+                </h2>
+                <div class="w-16 h-1 bg-[#DD6B20] mx-auto mb-6"></div>
+                <p class="text-[#4B5563]">世代を超えて、貴社の未来を共に創る</p>
+              </div>
+              <div class="grid md:grid-cols-2 gap-12 max-w-5xl mx-auto mb-16">
+                <div
+                  class="flex flex-col md:flex-row gap-6 bg-[#F9FAFB] p-6 rounded-xl border border-gray-100"
+                >
+                  <div class="w-full md:w-1/3">
+                    <img
+                      src="https://img.dekirukun.ai/generated-images/sites/05db7f52-d6da-4514-9a80-82672d46a343/staff_20260322_184018_73777763.jpg"
+                      alt="代表 太田誠一郎"
+                      class="w-full aspect-square object-cover rounded-lg shadow-md"
+                    />
+                  </div>
+                  <div class="w-full md:w-2/3 flex flex-col justify-center">
+                    <p class="text-sm font-bold text-[#DD6B20] mb-1">
+                      代表税理士・創業者
+                    </p>
+                    <h3
+                      class="text-2xl font-serif font-bold text-[#1A365D] mb-2"
+                    >
+                      太田 誠一郎
+                    </h3>
+                    <p class="text-xs text-gray-500 mb-4">
+                      保有資格：税理士 / 行政書士
+                    </p>
+                    <p class="text-[#4B5563] text-sm leading-relaxed">
+                      1992年の創業以来、群馬県内の中小企業を中心に240社以上の経営を支援してまいりました。「経営者の孤独に寄り添う」をモットーに、税務の枠を超えた経営全般のアドバイスを行っています。
+                    </p>
+                  </div>
+                </div>
+                <div
+                  class="flex flex-col md:flex-row gap-6 bg-[#F9FAFB] p-6 rounded-xl border border-gray-100"
+                >
+                  <div class="w-full md:w-1/3">
+                    <img
+                      src="https://img.dekirukun.ai/generated-images/sites/05db7f52-d6da-4514-9a80-82672d46a343/unknown_20260322_184019_b983a88a.jpg"
+                      alt="副代表 太田健太"
+                      class="w-full aspect-square object-cover rounded-lg shadow-md"
+                    />
+                  </div>
+                  <div class="w-full md:w-2/3 flex flex-col justify-center">
+                    <p class="text-sm font-bold text-[#2F855A] mb-1">
+                      副代表税理士・事業承継担当
+                    </p>
+                    <h3
+                      class="text-2xl font-serif font-bold text-[#1A365D] mb-2"
+                    >
+                      太田 健太
+                    </h3>
+                    <p class="text-xs text-gray-500 mb-4">
+                      保有資格：税理士 / 1級FP技能士
+                    </p>
+                    <p class="text-[#4B5563] text-sm leading-relaxed">
+                      都内大手税理士法人での経験を経て当事務所へ。最新のクラウド会計導入や、次世代への事業承継・M&amp;A支援を得意としています。若手経営者様と同世代の目線で、新しいビジネスモデルの構築をサポートします。
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="bg-[#1A365D] rounded-xl p-8 text-center text-white max-w-4xl mx-auto"
+                title=""
+              >
+                <h4 class="text-xl font-bold mb-4">
+                  多様な専門性を持つ20名のスタッフ
+                </h4>
+                <p class="text-gray-300 text-sm leading-relaxed mb-6">
+                  農業法人専門のコンサルタント、建設業の経審対策に強いスタッフ、きめ細やかな対応が好評の女性スタッフなど、多様な人材が在籍。チーム体制で貴社を多角的にサポートします。
+                </p>
+                <div class="flex justify-center space-x-4">
+                  <div class="bg-white/10 px-4 py-2 rounded text-sm">
+                    税理士 5名
+                  </div>
+                  <div class="bg-white/10 px-4 py-2 rounded text-sm">
+                    専門スタッフ 15名
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+          <section id="faq" class="w-full py-20 bg-[#F9FAFB]" title="">
+            <div class="max-w-3xl mx-auto px-4 md:px-6 lg:px-8">
+              <div class="text-center mb-12">
+                <span class="text-[#DD6B20] font-bold tracking-wider text-sm"
+                  >FAQ</span
+                >
+                <h2
+                  class="text-3xl md:text-4xl font-serif font-bold text-[#1A365D] mt-2 mb-4"
+                >
+                  よくある質問
+                </h2>
+                <div class="w-16 h-1 bg-[#DD6B20] mx-auto"></div>
+              </div>
+              <div class="space-y-4">
+                <div
+                  class="bg-white border border-gray-200 rounded-lg overflow-hidden shadow-sm"
+                >
+                  <button
+                    class="w-full px-6 py-4 text-left flex justify-between items-center focus:outline-none"
+                    title=""
+                  >
+                    <span class="font-bold text-[#1F2937] pr-4 flex items-start"
+                      ><span class="text-[#1A365D] mr-2">Q.</span
+                      >料金や契約期間について教えてください。</span
+                    ><svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="lucide lucide-chevron-up w-5 h-5 text-gray-500 flex-shrink-0"
+                      aria-hidden="true"
+                    >
+                      <path d="m18 15-6-6-6 6"></path>
+                    </svg>
+                  </button>
+                  <div
+                    class="px-6 pb-4 pt-2 bg-gray-50 border-t border-gray-100"
+                  >
+                    <p
+                      class="text-[#4B5563] text-sm leading-relaxed flex items-start"
+                    >
+                      <span class="text-[#DD6B20] font-bold mr-2">A.</span
+                      >料金は事業規模や訪問頻度、依頼内容によって異なります。事前にお見積りをご提示し、ご納得いただいてからの契約となります。契約期間は原則1年ごとの自動更新ですが、解約をご希望の場合は1ヶ月前のお申し出で可能です。
+                    </p>
+                  </div>
+                </div>
+                <div
+                  class="bg-white border border-gray-200 rounded-lg overflow-hidden shadow-sm"
+                >
+                  <button
+                    class="w-full px-6 py-4 text-left flex justify-between items-center focus:outline-none"
+                  >
+                    <span class="font-bold text-[#1F2937] pr-4 flex items-start"
+                      ><span class="text-[#1A365D] mr-2">Q.</span
+                      >前橋市外の企業でも対応可能ですか？</span
+                    ><svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="lucide lucide-chevron-down w-5 h-5 text-gray-500 flex-shrink-0"
+                      aria-hidden="true"
+                    >
+                      <path d="m6 9 6 6 6-6"></path>
+                    </svg>
+                  </button>
+                </div>
+                <div
+                  class="bg-white border border-gray-200 rounded-lg overflow-hidden shadow-sm"
+                >
+                  <button
+                    class="w-full px-6 py-4 text-left flex justify-between items-center focus:outline-none"
+                  >
+                    <span class="font-bold text-[#1F2937] pr-4 flex items-start"
+                      ><span class="text-[#1A365D] mr-2">Q.</span
+                      >現在の税理士から乗り換えを検討していますが、どう進めればよいですか？</span
+                    ><svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="lucide lucide-chevron-down w-5 h-5 text-gray-500 flex-shrink-0"
+                      aria-hidden="true"
+                    >
+                      <path d="m6 9 6 6 6-6"></path>
+                    </svg>
+                  </button>
+                </div>
+                <div
+                  class="bg-white border border-gray-200 rounded-lg overflow-hidden shadow-sm"
+                >
+                  <button
+                    class="w-full px-6 py-4 text-left flex justify-between items-center focus:outline-none"
+                  >
+                    <span class="font-bold text-[#1F2937] pr-4 flex items-start"
+                      ><span class="text-[#1A365D] mr-2">Q.</span
+                      >農業法人の設立や税務にも対応していますか？</span
+                    ><svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="lucide lucide-chevron-down w-5 h-5 text-gray-500 flex-shrink-0"
+                      aria-hidden="true"
+                    >
+                      <path d="m6 9 6 6 6-6"></path>
+                    </svg>
+                  </button>
+                </div>
+                <div
+                  class="bg-white border border-gray-200 rounded-lg overflow-hidden shadow-sm"
+                >
+                  <button
+                    class="w-full px-6 py-4 text-left flex justify-between items-center focus:outline-none"
+                  >
+                    <span class="font-bold text-[#1F2937] pr-4 flex items-start"
+                      ><span class="text-[#1A365D] mr-2">Q.</span
+                      >MFクラウドやfreeeなどのクラウド会計には対応していますか？</span
+                    ><svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="lucide lucide-chevron-down w-5 h-5 text-gray-500 flex-shrink-0"
+                      aria-hidden="true"
+                    >
+                      <path d="m6 9 6 6 6-6"></path>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </section>
+          <section id="news" class="w-full py-20 bg-white" title="">
+            <div class="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
+              <div
+                class="flex flex-col md:flex-row justify-between items-end mb-12"
+              >
+                <div>
+                  <span class="text-[#DD6B20] font-bold tracking-wider text-sm"
+                    >NEWS &amp; COLUMN</span
+                  >
+                  <h2
+                    class="text-3xl md:text-4xl font-serif font-bold text-[#1A365D] mt-2 mb-4"
+                  >
+                    群馬の経営者のためのお役立ちコラム
+                  </h2>
+                  <div class="w-16 h-1 bg-[#DD6B20]"></div>
+                </div>
+                <a
+                  href="news.html"
+                  class="hidden md:flex items-center text-[#1A365D] font-bold hover:text-[#DD6B20] transition-colors"
+                >
+                  記事一覧を見る
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="lucide lucide-arrow-right w-4 h-4 ml-1"
+                    aria-hidden="true"
+                  >
+                    <path d="M5 12h14"></path>
+                    <path d="m12 5 7 7-7 7"></path>
+                  </svg>
+                </a>
+              </div>
+              <div class="grid md:grid-cols-3 gap-8 mb-8">
+                <a
+                  href="news-detail.html"
+                  class="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 cursor-pointer group flex flex-col h-full no-underline text-inherit"
+                >
+                  <div class="relative h-48 overflow-hidden bg-gray-100">
+                    <img
+                      src="https://img.dekirukun.ai/cms/articles/05db7f52-d6da-4514-9a80-82672d46a343/article_4b0052d0_20260322_183656_ad55d262.jpg"
+                      alt="太田総合税理士事務所、建設業の会計処理に関するコラム更新"
+                      class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+                    <div
+                      class="absolute top-4 left-4 px-3 py-1 text-xs font-bold text-white rounded shadow-sm"
+                      style="background-color: rgb(16, 185, 129)"
+                    >
+                      更新情報
+                    </div>
+                  </div>
+                  <div class="p-6 flex-grow flex flex-col">
+                    <time class="text-sm text-gray-500 mb-2 flex items-center"
+                      ><svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        class="lucide lucide-calendar w-4 h-4 mr-1"
+                        aria-hidden="true"
+                      >
+                        <path d="M8 2v4"></path>
+                        <path d="M16 2v4"></path>
+                        <rect width="18" height="18" x="3" y="4" rx="2"></rect>
+                        <path d="M3 10h18"></path></svg
+                      >2026年3月23日</time
+                    >
+                    <h3
+                      class="text-lg font-bold text-[#1F2937] mb-3 group-hover:text-[#1A365D] transition-colors line-clamp-2"
+                    >
+                      太田総合税理士事務所、建設業の会計処理に関するコラム更新
+                    </h3>
+                    <p
+                      class="text-sm text-[#4B5563] line-clamp-3 mb-4 flex-grow"
+                    >
+                      太田総合税理士事務所のウェブサイトに、建設業向けの会計処理に関するコラムを掲載しました。
+                    </p>
+                    <div
+                      class="mt-auto pt-4 border-t border-gray-100 flex items-center text-sm font-bold text-[#1A365D] group-hover:text-[#DD6B20] transition-colors"
+                    >
+                      続きを読む
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        class="lucide lucide-chevron-right w-4 h-4 ml-1"
+                        aria-hidden="true"
+                      >
+                        <path d="m9 18 6-6-6-6"></path>
+                      </svg>
+                    </div>
+                  </div>
+                </a>
+                <a
+                  href="news-detail-2.html"
+                  class="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 cursor-pointer group flex flex-col h-full no-underline text-inherit"
+                >
+                  <div class="relative h-48 overflow-hidden bg-gray-100">
+                    <img
+                      src="https://img.dekirukun.ai/cms/articles/05db7f52-d6da-4514-9a80-82672d46a343/article_85159a86_20260322_183648_0bf94aeb.jpg"
+                      alt="太田総合税理士事務所、製造業向け税務相談会開催"
+                      class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+                    <div
+                      class="absolute top-4 left-4 px-3 py-1 text-xs font-bold text-white rounded shadow-sm"
+                      style="background-color: rgb(245, 158, 11)"
+                    >
+                      イベント
+                    </div>
+                  </div>
+                  <div class="p-6 flex-grow flex flex-col" title="">
+                    <time class="text-sm text-gray-500 mb-2 flex items-center"
+                      ><svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        class="lucide lucide-calendar w-4 h-4 mr-1"
+                        aria-hidden="true"
+                      >
+                        <path d="M8 2v4"></path>
+                        <path d="M16 2v4"></path>
+                        <rect width="18" height="18" x="3" y="4" rx="2"></rect>
+                        <path d="M3 10h18"></path></svg
+                      >2026年3月23日</time
+                    >
+                    <h3
+                      class="text-lg font-bold text-[#1F2937] mb-3 group-hover:text-[#1A365D] transition-colors line-clamp-2"
+                    >
+                      太田総合税理士事務所、製造業向け税務相談会開催
+                    </h3>
+                    <p
+                      class="text-sm text-[#4B5563] line-clamp-3 mb-4 flex-grow"
+                    >
+                      群馬県前橋市の太田総合税理士事務所が、製造業に特化した税務相談会を開催します。
+                    </p>
+                    <div
+                      class="mt-auto pt-4 border-t border-gray-100 flex items-center text-sm font-bold text-[#1A365D] group-hover:text-[#DD6B20] transition-colors"
+                    >
+                      続きを読む
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        class="lucide lucide-chevron-right w-4 h-4 ml-1"
+                        aria-hidden="true"
+                      >
+                        <path d="m9 18 6-6-6-6"></path>
+                      </svg>
+                    </div>
+                  </div>
+                </a>
+                <a
+                  href="news-detail-3.html"
+                  class="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 cursor-pointer group flex flex-col h-full no-underline text-inherit"
+                >
+                  <div class="relative h-48 overflow-hidden bg-gray-100">
+                    <img
+                      src="https://img.dekirukun.ai/cms/articles/05db7f52-d6da-4514-9a80-82672d46a343/article_304493e4_20260322_183652_d28bf004.jpg"
+                      alt="太田総合税理士事務所、農業法人向け経営セミナー開催のご案内"
+                      class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+                    <div
+                      class="absolute top-4 left-4 px-3 py-1 text-xs font-bold text-white rounded shadow-sm"
+                      style="background-color: rgb(245, 158, 11)"
+                    >
+                      イベント
+                    </div>
+                  </div>
+                  <div class="p-6 flex-grow flex flex-col">
+                    <time class="text-sm text-gray-500 mb-2 flex items-center"
+                      ><svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        class="lucide lucide-calendar w-4 h-4 mr-1"
+                        aria-hidden="true"
+                      >
+                        <path d="M8 2v4"></path>
+                        <path d="M16 2v4"></path>
+                        <rect width="18" height="18" x="3" y="4" rx="2"></rect>
+                        <path d="M3 10h18"></path></svg
+                      >2026年3月23日</time
+                    >
+                    <h3
+                      class="text-lg font-bold text-[#1F2937] mb-3 group-hover:text-[#1A365D] transition-colors line-clamp-2"
+                    >
+                      太田総合税理士事務所、農業法人向け経営セミナー開催のご案内
+                    </h3>
+                    <p
+                      class="text-sm text-[#4B5563] line-clamp-3 mb-4 flex-grow"
+                    >
+                      太田総合税理士事務所が、農業法人を対象とした経営支援セミナーを前橋市で開催します。
+                    </p>
+                    <div
+                      class="mt-auto pt-4 border-t border-gray-100 flex items-center text-sm font-bold text-[#1A365D] group-hover:text-[#DD6B20] transition-colors"
+                    >
+                      続きを読む
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        class="lucide lucide-chevron-right w-4 h-4 ml-1"
+                        aria-hidden="true"
+                      >
+                        <path d="m9 18 6-6-6-6"></path>
+                      </svg>
+                    </div>
+                  </div>
+                </a>
+              </div>
+              <div class="md:hidden text-center mt-8">
+                <a
+                  href="news.html"
+                  class="inline-flex items-center justify-center bg-white border border-[#1A365D] text-[#1A365D] px-6 py-3 rounded-md font-bold w-full"
+                >
+                  記事一覧を見る
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="lucide lucide-arrow-right w-4 h-4 ml-2"
+                    aria-hidden="true"
+                  >
+                    <path d="M5 12h14"></path>
+                    <path d="m12 5 7 7-7 7"></path>
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </section>
+          <section id="contact" class="w-full py-20 bg-[#1A365D] relative">
+            <div
+              class="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]"
+            ></div>
+            <div class="max-w-7xl mx-auto px-4 md:px-6 lg:px-8 relative z-10">
+              <div class="text-center mb-12">
+                <span class="text-[#DD6B20] font-bold tracking-wider text-sm"
+                  >CONTACT</span
+                >
+                <h2
+                  class="text-3xl md:text-4xl font-serif font-bold text-white mt-2 mb-4"
+                >
+                  お問い合わせ・無料相談
+                </h2>
+                <div class="w-16 h-1 bg-[#DD6B20] mx-auto mb-6"></div>
+                <p class="text-gray-300">
+                  まずはお気軽にご相談ください。初回60分無料です。
+                </p>
+              </div>
+              <div class="grid lg:grid-cols-5 gap-12 max-w-6xl mx-auto">
+                <div class="lg:col-span-2 text-white space-y-8">
+                  <div
+                    class="bg-white/10 p-6 rounded-xl border border-white/20 backdrop-blur-sm"
+                  >
+                    <h3 class="text-xl font-bold mb-4 flex items-center">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        class="lucide lucide-phone w-5 h-5 mr-2 text-[#DD6B20]"
+                        aria-hidden="true"
+                      >
+                        <path
+                          d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384"
+                        ></path></svg
+                      >お電話でのご相談
+                    </h3>
+                    <p class="text-3xl font-bold mb-2">027-000-0000</p>
+                    <p class="text-sm text-gray-300">
+                      受付時間：平日 9:00〜18:00
+                    </p>
+                  </div>
+                  <div
+                    class="bg-white/10 p-6 rounded-xl border border-white/20 backdrop-blur-sm"
+                  >
+                    <h3 class="text-xl font-bold mb-4 flex items-center">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        class="lucide lucide-map-pin w-5 h-5 mr-2 text-[#DD6B20]"
+                        aria-hidden="true"
+                      >
+                        <path
+                          d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"
+                        ></path>
+                        <circle cx="12" cy="10" r="3"></circle></svg
+                      >アクセス
+                    </h3>
+                    <address
+                      class="text-sm not-italic text-gray-300 space-y-1 mb-4"
+                    >
+                      <p>〒371-0000</p>
+                      <p>群馬県前橋市〇〇町1-2-3</p>
+                      <p>太田ビル 2F</p>
+                    </address>
+                    <p
+                      class="text-sm font-bold text-[#DD6B20] bg-white/10 inline-block px-3 py-1 rounded"
+                    >
+                      駐車場10台完備
+                    </p>
+                  </div>
+                  <div
+                    class="rounded-xl overflow-hidden h-64 border border-white/20"
+                  >
+                    <iframe
+                      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d102641.53037233211!2d139.00643715!3d36.3888373!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x601e8cd184000001%3A0x8000000000000000!2z576k6aas55yM5YmN5qmL5biC!5e0!3m2!1sja!2sjp!4v1600000000000!5m2!1sja!2sjp"
+                      width="100%"
+                      height="100%"
+                      loading="lazy"
+                      title="Google Maps"
+                      style="border: 0px"
+                    ></iframe>
+                  </div>
+                </div>
+                <div class="lg:col-span-3">
+                  <div class="bg-white rounded-xl p-8 shadow-2xl">
+                    <form class="space-y-6">
+                      <p class="text-sm text-gray-500 mb-6">
+                        太田総合税理士事務所へのお問い合わせはこちらから。
+                      </p>
+                      <div class="">
+                        <label
+                          class="block text-sm font-bold text-[#1F2937] mb-2"
+                          >お名前<span class="text-red-500 ml-1">*</span></label
+                        ><input
+                          type="text"
+                          name="name"
+                          required=""
+                          placeholder="山田 太郎"
+                          class="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-[#1A365D] focus:border-transparent transition-shadow"
+                          value=""
+                        />
+                      </div>
+                      <div class="">
+                        <label
+                          class="block text-sm font-bold text-[#1F2937] mb-2"
+                          >会社名・屋号<span class="text-red-500 ml-1"
+                            >*</span
+                          ></label
+                        ><input
+                          type="text"
+                          name="company_name"
+                          required=""
+                          placeholder="株式会社〇〇"
+                          class="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-[#1A365D] focus:border-transparent transition-shadow"
+                          value=""
+                        />
+                      </div>
+                      <div class="">
+                        <label
+                          class="block text-sm font-bold text-[#1F2937] mb-2"
+                          >ご担当者名<span class="text-red-500 ml-1"
+                            >*</span
+                          ></label
+                        ><input
+                          type="text"
+                          name="contact_person_name"
+                          required=""
+                          placeholder="山田 太郎"
+                          class="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-[#1A365D] focus:border-transparent transition-shadow"
+                          value=""
+                        />
+                      </div>
+                      <div class="">
+                        <label
+                          class="block text-sm font-bold text-[#1F2937] mb-2"
+                          >メールアドレス<span class="text-red-500 ml-1"
+                            >*</span
+                          ></label
+                        ><input
+                          type="email"
+                          name="email"
+                          required=""
+                          placeholder="your_email@example.com"
+                          class="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-[#1A365D] focus:border-transparent transition-shadow"
+                          value=""
+                        />
+                      </div>
+                      <div class="">
+                        <label
+                          class="block text-sm font-bold text-[#1F2937] mb-2"
+                          >電話番号</label
+                        ><input
+                          type="tel"
+                          name="phone_number"
+                          placeholder="090-1234-5678"
+                          class="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-[#1A365D] focus:border-transparent transition-shadow"
+                          value=""
+                        />
+                      </div>
+                      <div class="">
+                        <label
+                          class="block text-sm font-bold text-[#1F2937] mb-2"
+                          >お問い合わせ種別<span class="text-red-500 ml-1"
+                            >*</span
+                          ></label
+                        ><select
+                          name="inquiry_type"
+                          required=""
+                          class="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-[#1A365D] focus:border-transparent transition-shadow bg-white"
+                          title=""
+                        >
+                          <option value="">選択してください</option>
+                          <option value="tax_advisory">税務顧問について</option>
+                          <option value="bookkeeping">記帳代行について</option>
+                          <option value="management_support">
+                            経営支援について
+                          </option>
+                          <option value="inheritance_business_succession">
+                            相続・事業承継について
+                          </option>
+                          <option value="other">その他</option>
+                        </select>
+                      </div>
+                      <div class="">
+                        <label
+                          class="block text-sm font-bold text-[#1F2937] mb-2"
+                          >お問い合わせ内容<span class="text-red-500 ml-1"
+                            >*</span
+                          ></label
+                        ><textarea
+                          name="message"
+                          required=""
+                          placeholder="具体的な内容をご記入ください。"
+                          rows="5"
+                          class="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-[#1A365D] focus:border-transparent transition-shadow"
+                        ></textarea>
+                      </div>
+                      <div class="hidden">
+                        <input
+                          type="text"
+                          name="honeypot"
+                          tabindex="-1"
+                          autocomplete="off"
+                        />
+                      </div>
+                      <div class="pt-4">
+                        <button
+                          type="submit"
+                          class="w-full bg-[#DD6B20] hover:bg-[#C05621] text-white font-bold py-4 rounded-md transition-colors shadow-md flex justify-center items-center disabled:opacity-70 disabled:cursor-not-allowed"
+                        >
+                          送信する
+                        </button>
+                        <p class="text-xs text-center text-gray-400 mt-4">
+                          ご入力いただいた情報は、お問い合わせ対応の目的のみに使用いたします。
+                        </p>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+        </main>
+        <footer
+          class="w-full bg-[#0F172A] text-gray-300 py-12 border-t border-gray-800"
+          title=""
+        >
+          <div class="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8 mb-8">
+              <div class="md:col-span-2">
+                <h2 class="text-2xl font-serif font-bold text-white mb-4">
+                  太田総合税理士事務所
+                </h2>
+                <address
+                  class="not-italic text-sm space-y-2 mb-6 text-gray-400"
+                >
+                  <p>〒371-0000</p>
+                  <p>群馬県前橋市〇〇町1-2-3 太田ビル 2F</p>
+                  <p class="flex items-center mt-2 text-white font-bold">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="lucide lucide-phone w-4 h-4 mr-2"
+                      aria-hidden="true"
+                    >
+                      <path
+                        d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384"
+                      ></path></svg
+                    >027-000-0000
+                  </p>
+                  <p>平日 9:00〜18:00（土日祝休）</p>
+                </address>
+              </div>
+              <div>
+                <h3
+                  class="text-white font-bold mb-4 border-b border-gray-700 pb-2"
+                >
+                  メニュー
+                </h3>
+                <ul class="space-y-2 text-sm">
+                  <li>
+                    <a
+                      href="#hero"
+                      class="hover:text-white transition-colors no-underline text-gray-300"
+                      >ホーム</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="#services"
+                      class="hover:text-white transition-colors no-underline text-gray-300"
+                      >サービス</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="#pricing"
+                      class="hover:text-white transition-colors no-underline text-gray-300"
+                      >料金プラン</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="#testimonials"
+                      class="hover:text-white transition-colors no-underline text-gray-300"
+                      >実績・事例</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="#team"
+                      class="hover:text-white transition-colors no-underline text-gray-300"
+                      >スタッフ紹介</a
+                    >
+                  </li>
+                </ul>
+              </div>
+              <div>
+                <h3
+                  class="text-white font-bold mb-4 border-b border-gray-700 pb-2"
+                >
+                  インフォメーション
+                </h3>
+                <ul class="space-y-2 text-sm">
+                  <li>
+                    <a
+                      href="news.html#page-heading"
+                      class="hover:text-white transition-colors no-underline text-gray-300"
+                      >お知らせ・コラム</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="#contact"
+                      class="hover:text-white transition-colors no-underline text-gray-300"
+                      >お問い合わせ</a
+                    >
+                  </li>
+                  <li>
+                    <a href="#" class="hover:text-white transition-colors"
+                      >プライバシーポリシー</a
+                    >
+                  </li>
+                  <li>
+                    <a href="#" class="hover:text-white transition-colors"
+                      >特定商取引法に基づく表記</a
+                    >
+                  </li>
+                  <li>
+                    <a href="#" class="hover:text-white transition-colors"
+                      >サイトマップ</a
+                    >
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div
+              class="border-t border-gray-800 pt-8 text-center text-sm text-gray-500 flex flex-col md:flex-row justify-between items-center"
+            >
+              <p>© 2026 Ota Tax Accounting Office. All Rights Reserved.</p>
+              <p class="mt-2 md:mt-0">
+                群馬県前橋市の税理士・経営コンサルティング
+              </p>
+            </div>
+          </div>
+        </footer>
+      </div>
+    </div>
+
+    <!-- ランタイム: グローバル関数（モジュール script より前に定義） -->
+
+    <!-- ユーザーコード（import 文がそのまま残っている ESM） -->
+  </body>
+</html>
